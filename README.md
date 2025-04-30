@@ -9,8 +9,8 @@ todo
 ```bash
     git clone git@github.com:Jellyvai/vscode-codenote-web.git
     cd vscode-codenote-web
-    npm i
-    node ./code-web-pt.js https://jellyvai.com/api # you can replace the api to yourself api
+    pnpm i
+    node ./code-web-pt.js --port 8710
 ```
 
 will open a http://localhost:8080/vscode-web browser window

@@ -82,9 +82,9 @@ async function main() {
 	serverArgs.push(...process.argv.slice(2).filter(v => !v.startsWith('--playground') && v !== '--no-playground'));
 
 	startServer(serverArgs);
-	if (openSystemBrowser) {
-		open(`http://${HOST}:${PORT}/vscode-web`);
-	}
+	// if (openSystemBrowser) {
+	// 	open(`http://${HOST}:${PORT}/vscode-web`);
+	// }
 }
 
 function startServer(runnerArguments) {
