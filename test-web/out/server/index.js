@@ -96,6 +96,8 @@ async function open(options) {
         extensionIds: options.extensionIds,
         coi: !!options.coi,
         esm: !!options.esm,
+        domain: options.domain,
+        protocol: options.protocol
     };
     const host = options.host ?? 'localhost';
     const port = options.port ?? 3000;
@@ -378,6 +380,8 @@ function showHelp() {
     console.log(`  --extensionId: The id of an extension include. The format is '\${publisher}.\${name}'. Append '@prerelease' to use a prerelease version [Optional, Multiple]`);
     console.log(`  --host: The host name the server is opened on. [Optional, defaults to localhost]`);
     console.log(`  --port: The port the server is opened on. [Optional, defaults to 3000]`);
+    console.log(`  --domain: The domain the server is opened on. [Optional, defaults to localhost]`);
+    console.log(`  --protocol: The protocol the server is opened on. [Optional, defaults to http]`);
     console.log(`  --open-devtools: If set, opens the dev tools. [Optional]`);
     console.log(`  --verbose: If set, prints out more information when running the server. [Optional]`);
     console.log(`  --printServerLog: If set, prints the server access log. [Optional]`);
@@ -396,7 +400,7 @@ async function cliMain() {
     const manifest = JSON.parse(await (0, download_1.readFileInRepo)('package.json'));
     console.log(`${manifest.name}: ${manifest.version}`);
     const options = {
-        string: ['extensionDevelopmentPath', 'extensionTestsPath', 'browser', 'browserOption', 'browserType', 'quality', 'version', 'commit', 'waitForDebugger', 'folder-uri', 'permission', 'extensionPath', 'extensionId', 'sourcesPath', 'host', 'port', 'testRunnerDataDir'],
+        string: ['extensionDevelopmentPath', 'extensionTestsPath', 'browser', 'browserOption', 'browserType', 'quality', 'version', 'commit', 'waitForDebugger', 'folder-uri', 'permission', 'extensionPath', 'extensionId', 'sourcesPath', 'host', 'port', 'domain', "protocol", 'testRunnerDataDir'],
         boolean: ['open-devtools', 'headless', 'hideServerLog', 'printServerLog', 'help', 'verbose', 'coi', 'esm'],
         unknown: arg => {
             if (arg.startsWith('-')) {
@@ -428,6 +432,9 @@ async function cliMain() {
     const verbose = validateBooleanOrUndefined(args, 'verbose');
     const port = validatePortNumber(args.port);
     const host = validateStringOrUndefined(args, 'host');
+    const domain = validateStringOrUndefined(args, 'domain') || "localhost";
+    const protocol = validateStringOrUndefined(args, 'protocol') || "http";
+    console.log("domain", domain)
     const coi = validateBooleanOrUndefined(args, 'coi');
     const esm = validateBooleanOrUndefined(args, 'esm');
     // const esm = true;
@@ -469,6 +476,8 @@ async function cliMain() {
             coi,
             host,
             port,
+            domain,
+            protocol,
             testRunnerDataDir,
         }).catch(e => {
             console.log('Error running tests:', e);
@@ -497,6 +506,8 @@ async function cliMain() {
             coi,
             host,
             port,
+            domain,
+            protocol,
             testRunnerDataDir,
         });
     }

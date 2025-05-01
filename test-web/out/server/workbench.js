@@ -88,8 +88,8 @@ async function getWorkbenchOptions(ctx, config) {
     if (config.extensionPaths) {
         const extensionPromises = config.extensionPaths.map((extensionPath, index) => {
             return (0, extensions_1.scanForExtensions)(extensionPath, {
-                scheme: ctx.protocol,
-                authority: ctx.host,
+                scheme: config.protocol,
+                authority: config.domain,
                 path: `/vscode-web/static/extensions/${index}`,
             });
         });
@@ -103,15 +103,15 @@ async function getWorkbenchOptions(ctx, config) {
     }
     if (config.extensionDevelopmentPath) {
         const developmentOptions = (options.developmentOptions = {});
-        developmentOptions.extensions = await (0, extensions_1.scanForExtensions)(config.extensionDevelopmentPath, { scheme: ctx.protocol, authority: ctx.host, path: '/vscode-web/static/devextensions' });
+        developmentOptions.extensions = await (0, extensions_1.scanForExtensions)(config.extensionDevelopmentPath, { scheme: config.protocol, authority: config.domain, path: '/vscode-web/static/devextensions' });
         if (config.extensionTestsPath) {
             let relativePath = path.relative(config.extensionDevelopmentPath, config.extensionTestsPath);
             if (process.platform === 'win32') {
                 relativePath = relativePath.replace(/\\/g, '/');
             }
             developmentOptions.extensionTestsPath = {
-                scheme: ctx.protocol,
-                authority: ctx.host,
+                scheme: config.protocol,
+                authority: config.domain,
                 path: path.posix.join('/vscode-web/static/devextensions', relativePath),
             };
         }
@@ -120,7 +120,7 @@ async function getWorkbenchOptions(ctx, config) {
         if (!options.additionalBuiltinExtensions) {
             options.additionalBuiltinExtensions = [];
         }
-        options.additionalBuiltinExtensions.push({ scheme: ctx.protocol, authority: ctx.host, path: mounts_1.fsProviderExtensionPrefix });
+        options.additionalBuiltinExtensions.push({ scheme: config.protocol, authority: config.domain, path: mounts_1.fsProviderExtensionPrefix });
         options.folderUri = vscode_uri_1.URI.parse(mounts_1.fsProviderFolderUri);
     }
     else if (config.folderUri) {
@@ -141,17 +141,17 @@ function default_1(config) {
             const esm = config.esm
             console.log('Using ESM loader:', esm);
             const devCSSModules = esm ? await getDevCssModules(config.build.location) : [];
-            ctx.state.workbench = new Workbench(`${ctx.protocol}://${ctx.host}/vscode-web/static/sources`, false, esm, devCSSModules, builtInExtensions, {
+            ctx.state.workbench = new Workbench(`${config.protocol}://${config.domain}/vscode-web/static/sources`, false, esm, devCSSModules, builtInExtensions, {
                 ...productOverrides,
-                webEndpointUrlTemplate: `${ctx.protocol}://{{uuid}}.${ctx.host}/vscode-web/static/sources`,
-                webviewContentExternalBaseUrlTemplate: `${ctx.protocol}://{{uuid}}.${ctx.host}/vscode-web/static/sources/out/vs/workbench/contrib/webview/browser/pre/`
+                webEndpointUrlTemplate: `${config.protocol}://{{uuid}}.${config.domain}/vscode-web/static/sources`,
+                webviewContentExternalBaseUrlTemplate: `${config.protocol}://{{uuid}}.${config.domain}/vscode-web/static/sources/out/vs/workbench/contrib/webview/browser/pre/`
             });
         }
         else if (config.build.type === 'static') {
-            const baseUrl = `${ctx.protocol}://${ctx.host}/vscode-web/static/build`;
+            const baseUrl = `${config.protocol}://${config.domain}/vscode-web/static/build`;
             ctx.state.workbench = new Workbench(baseUrl, false, config.esm, [], [], {
-                webEndpointUrlTemplate: `${ctx.protocol}://{{uuid}}.${ctx.host}/static/build`,
-                webviewContentExternalBaseUrlTemplate: `${ctx.protocol}://{{uuid}}.${ctx.host}/vscode-web/static/build/out/vs/workbench/contrib/webview/browser/pre/`
+                webEndpointUrlTemplate: `${config.protocol}://{{uuid}}.${config.domain}/static/build`,
+                webviewContentExternalBaseUrlTemplate: `${config.protocol}://{{uuid}}.${config.domain}/vscode-web/static/build/out/vs/workbench/contrib/webview/browser/pre/`
             });
         }
         else if (config.build.type === 'cdn') {

@@ -10,7 +10,7 @@ todo
     git clone git@github.com:Jellyvai/vscode-codenote-web.git
     cd vscode-codenote-web
     pnpm i
-    node ./code-web-pt.js --port 8710
+    node ./code-web-pt.js --port 8710 --domain jellyvai.com --protocol https # or replace to your domain
 ```
 
 will open a http://localhost:8080/vscode-web browser window

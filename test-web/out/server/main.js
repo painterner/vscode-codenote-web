@@ -8,7 +8,7 @@ exports.runServer = runServer;
 const app_1 = require("./app");
 async function runServer(host, port, config) {
     const app = await (0, app_1.default)(config);
-    host = '0.0.0.0'
+    // host = '0.0.0.0'
     try {
         const server = app.listen(port, host);
         console.log(`Listening on http://${host}:${port}`);

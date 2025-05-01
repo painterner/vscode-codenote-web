@@ -26,7 +26,7 @@ async function createApp(config) {
             const origin = ctx.get('Origin');
             if (/^https:\/\/[^.]+\.vscode-cdn\.net$/.test(origin) || // needed for the webviewContent
                 /^https:\/\/[^.]+\.vscode-webview\.net$/.test(origin) ||
-                new RegExp(`^${ctx.protocol}://[^.]+\\.${ctx.host}$`).test(origin) // match subdomains of localhost
+                new RegExp(`^${config.protocol}://[^.]+\\.${config.domain}$`).test(origin) // match subdomains of localhost
             ) {
                 return origin;
             }
