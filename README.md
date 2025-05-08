@@ -10,6 +10,8 @@ todo
     git clone git@github.com:Jellyvai/vscode-codenote-web.git
     cd vscode-codenote-web
     pnpm i
+	npm run compile-web # build web extensions in place
+	npm run gulp vscode-web # include build out-build folder and vscode-web-ci, see gulpfile.vscode.web.js
     node ./code-web-pt.js --port 8710 --domain jellyvai.com --protocol https # or replace to your domain
 ```
 
