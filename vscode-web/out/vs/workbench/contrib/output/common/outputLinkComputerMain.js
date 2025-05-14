@@ -6747,7 +6747,7 @@ var $Jab = class extends $FN {
 };
 
 // out-build/vs/workbench/contrib/output/common/outputLinkComputer.js
-var $plc = class _$plc {
+var $qlc = class _$qlc {
   constructor(workerServer) {
     this.a = new $Iab();
     this.b = /* @__PURE__ */ new Map();
@@ -6759,7 +6759,7 @@ var $plc = class _$plc {
   c(_workspaceFolders) {
     const workspaceFolders = _workspaceFolders.sort((resourceStrA, resourceStrB) => resourceStrB.length - resourceStrA.length).map((resourceStr) => URI.parse(resourceStr));
     for (const workspaceFolder of workspaceFolders) {
-      const patterns = _$plc.createPatterns(workspaceFolder);
+      const patterns = _$qlc.createPatterns(workspaceFolder);
       this.b.set(workspaceFolder, patterns);
     }
   }
@@ -6783,7 +6783,7 @@ var $plc = class _$plc {
         }
       };
       for (let i = 0, len = lines.length; i < len; i++) {
-        links.push(..._$plc.detectLinks(lines[i], i + 1, folderPatterns, resourceCreator));
+        links.push(..._$qlc.detectLinks(lines[i], i + 1, folderPatterns, resourceCreator));
       }
     }
     return links;
@@ -6857,8 +6857,8 @@ var $plc = class _$plc {
     return links;
   }
 };
-function $qlc(workerServer) {
-  return new $plc(workerServer);
+function $rlc(workerServer) {
+  return new $qlc(workerServer);
 }
 
 // out-build/vs/base/common/worker/webWorker.js
@@ -7166,6 +7166,6 @@ function $26(factory) {
 }
 
 // out-build/vs/workbench/contrib/output/common/outputLinkComputerMain.js
-$26($qlc);
+$26($rlc);
 
 //# sourceMappingURL=outputLinkComputerMain.js.map

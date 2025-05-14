@@ -377,9 +377,9 @@ export default {
 
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/_.contribution.js
-var $gKc = class _$gKc {
+var $hKc = class _$hKc {
   static {
-    this.INSTANCE = new _$gKc();
+    this.INSTANCE = new _$hKc();
   }
   get layoutInfos() {
     return this.a;
@@ -393,7 +393,7 @@ var $gKc = class _$gKc {
 };
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/en.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.keylayout.US", lang: "en", localizedName: "U.S.", isUSStandard: true },
   secondaryLayouts: [
     { id: "com.apple.keylayout.ABC", lang: "en", localizedName: "ABC" },
@@ -527,7 +527,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/zh-hans.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.inputmethod.SCIM.ITABC", lang: "zh-Hans", localizedName: "\u641C\u72D7\u62FC\u97F3" },
   secondaryLayouts: [],
   mapping: {
@@ -653,7 +653,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/en-uk.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.keylayout.British", lang: "en", localizedName: "British" },
   secondaryLayouts: [],
   mapping: {
@@ -779,7 +779,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/es.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.keylayout.Spanish-ISO", lang: "es", localizedName: "Spanish - ISO" },
   secondaryLayouts: [],
   mapping: {
@@ -905,7 +905,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/jp-roman.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.google.inputmethod.Japanese.Roman", lang: "en", localizedName: "Alphanumeric (Google)" },
   secondaryLayouts: [],
   mapping: {
@@ -1031,7 +1031,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/de.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.keylayout.German", lang: "de", localizedName: "German" },
   secondaryLayouts: [],
   mapping: {
@@ -1157,7 +1157,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/en-intl.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.keylayout.USInternational-PC", lang: "en", localizedName: "U.S. International - PC" },
   secondaryLayouts: [],
   mapping: {
@@ -1283,7 +1283,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/en-ext.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.keylayout.USExtended", lang: "en", localizedName: "ABC - Extended" },
   secondaryLayouts: [],
   mapping: {
@@ -1409,7 +1409,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/fr.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.keylayout.French", lang: "fr", localizedName: "French" },
   secondaryLayouts: [],
   mapping: {
@@ -1535,7 +1535,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/jp.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.inputmethod.Kotoeri.Japanese", lang: "ja", localizedName: "Hiragana" },
   secondaryLayouts: [],
   mapping: {
@@ -1661,7 +1661,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/pl.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.keylayout.PolishPro", lang: "pl", localizedName: "Polish - Pro" },
   secondaryLayouts: [],
   mapping: {
@@ -1787,7 +1787,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/it.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.keylayout.Italian-Pro", lang: "it", localizedName: "Italian" },
   secondaryLayouts: [],
   mapping: {
@@ -1913,7 +1913,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/ru.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.keylayout.Russian", lang: "ru", localizedName: "Russian" },
   secondaryLayouts: [],
   mapping: {
@@ -2039,7 +2039,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/pt.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.keylayout.Brazilian-Pro", lang: "pt" },
   secondaryLayouts: [],
   mapping: {
@@ -2165,7 +2165,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/ko.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.inputmethod.Korean.2SetKorean", lang: "ko", localizedName: "2-Set Korean" },
   secondaryLayouts: [],
   mapping: {
@@ -2291,7 +2291,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/dvorak.darwin.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { id: "com.apple.keylayout.Dvorak", localizedName: "Dvorak", lang: "en" },
   secondaryLayouts: [],
   mapping: {
@@ -2416,7 +2416,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
   }
 });
 export {
-  $gKc as KeyboardLayoutContribution
+  $hKc as KeyboardLayoutContribution
 };
 
 //# sourceMappingURL=layout.contribution.darwin.js.map

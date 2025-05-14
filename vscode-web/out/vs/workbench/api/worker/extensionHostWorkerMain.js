@@ -7940,7 +7940,7 @@ function $cz(obj, transformer) {
 }
 
 // out-build/vs/workbench/services/extensions/common/lazyPromise.js
-var $Kuc = class {
+var $Luc = class {
   constructor() {
     this.a = null;
     this.b = null;
@@ -8000,7 +8000,7 @@ var $Kuc = class {
     return this.j().finally(callback);
   }
 };
-var $Luc = class extends $Kuc {
+var $Muc = class extends $Luc {
   constructor() {
     super();
     this.h = true;
@@ -8019,7 +8019,7 @@ function safeStringify(obj, replacer) {
 }
 var refSymbolName = "$$ref$$";
 var undefinedRef = { [refSymbolName]: -1 };
-function $Muc(obj, replacer = null, useSafeStringify = false) {
+function $Nuc(obj, replacer = null, useSafeStringify = false) {
   const foundBuffers = [];
   const serialized = (useSafeStringify ? safeStringify : JSON.stringify)(obj, (key, value) => {
     if (typeof value === "undefined") {
@@ -8040,7 +8040,7 @@ function $Muc(obj, replacer = null, useSafeStringify = false) {
     referencedBuffers: foundBuffers
   };
 }
-function $Nuc(jsonString, buffers, uriTransformer) {
+function $Ouc(jsonString, buffers, uriTransformer) {
   return JSON.parse(jsonString, (_key, value) => {
     if (value) {
       const ref = value[refSymbolName];
@@ -8082,7 +8082,7 @@ var noop = () => {
 };
 var _RPCProtocolSymbol = Symbol.for("rpcProtocol");
 var _RPCProxySymbol = Symbol.for("rpcProxy");
-var $Ouc = class _$Ouc extends $sd {
+var $Puc = class _$Puc extends $sd {
   static {
     _a3 = _RPCProtocolSymbol;
   }
@@ -8132,7 +8132,7 @@ var $Ouc = class _$Ouc extends $sd {
   }
   F(req) {
     if (this.z === 0) {
-      this.C = Date.now() + _$Ouc.a;
+      this.C = Date.now() + _$Puc.a;
     }
     this.z++;
     if (!this.D.isScheduled()) {
@@ -8140,7 +8140,7 @@ var $Ouc = class _$Ouc extends $sd {
     }
   }
   G(req) {
-    this.C = Date.now() + _$Ouc.a;
+    this.C = Date.now() + _$Puc.a;
     this.z--;
     if (this.z === 0) {
       this.D.cancel();
@@ -8375,7 +8375,7 @@ var $Ouc = class _$Ouc extends $sd {
   }
   U(rpcId, methodName, args) {
     if (this.j) {
-      return new $Luc();
+      return new $Muc();
     }
     let cancellationToken = null;
     if (args.length > 0 && CancellationToken.isCancellationToken(args[args.length - 1])) {
@@ -8387,7 +8387,7 @@ var $Ouc = class _$Ouc extends $sd {
     const serializedRequestArguments = MessageIO.serializeRequestArguments(args, this.h);
     const req = ++this.t;
     const callId = String(req);
-    const result = new $Kuc();
+    const result = new $Luc();
     const disposable = new $rd();
     if (cancellationToken) {
       disposable.add(cancellationToken.onCancellationRequested(() => {
@@ -8604,7 +8604,7 @@ var MessageBuffer = class _MessageBuffer {
           for (let i2 = 0; i2 < bufferCount; ++i2) {
             buffers.push(this.readVSBuffer());
           }
-          arr[i] = new $kV($Nuc(jsonString, buffers, null));
+          arr[i] = new $kV($Ouc(jsonString, buffers, null));
           break;
         }
         case 4:
@@ -8648,7 +8648,7 @@ var MessageIO = class {
             /* ArgType.Undefined */
           };
         } else if (arg instanceof $kV) {
-          const { jsonString, referencedBuffers } = $Muc(arg.value, replacer);
+          const { jsonString, referencedBuffers } = $Nuc(arg.value, replacer);
           massagedArgs[i] = { type: 3, value: $Wi.fromString(jsonString), buffers: referencedBuffers };
         } else {
           massagedArgs[i] = { type: 1, value: $Wi.fromString(stringify(arg, replacer)) };
@@ -8738,7 +8738,7 @@ var MessageIO = class {
     } else if (res instanceof $Wi) {
       return this.e(req, res);
     } else if (res instanceof $kV) {
-      const { jsonString, referencedBuffers } = $Muc(res.value, replacer, true);
+      const { jsonString, referencedBuffers } = $Nuc(res.value, replacer, true);
       return this.g(req, jsonString, referencedBuffers);
     } else {
       return this.f(req, safeStringify(res, replacer));
@@ -8792,7 +8792,7 @@ var MessageIO = class {
     for (let i = 0; i < bufferCount; ++i) {
       buffers.push(buff.readVSBuffer());
     }
-    return new $kV($Nuc(res, buffers, uriTransformer));
+    return new $kV($Ouc(res, buffers, uriTransformer));
   }
   static serializeReplyErr(req, err) {
     const errStr = err ? safeStringify($ib(err), null) : void 0;
@@ -12053,8 +12053,8 @@ var $fZ = class {
 };
 
 // out-build/vs/workbench/api/common/extHostUriTransformerService.js
-var $TEc = $kl("IURITransformerService");
-var $UEc = class {
+var $UEc = $kl("IURITransformerService");
+var $VEc = class {
   constructor(delegate) {
     if (!delegate) {
       this.transformIncoming = (arg) => arg;
@@ -13005,7 +13005,7 @@ var $Hl = `.${$Gl}`;
 var $Il = [{ name: localize(2646, null), extensions: [$Gl] }];
 
 // out-build/vs/workbench/api/common/extHostFileSystemInfo.js
-var $zEc = class {
+var $AEc = class {
   constructor() {
     this.a = new Set(Object.keys(Schemas));
     this.b = /* @__PURE__ */ new Map();
@@ -13034,7 +13034,7 @@ var $zEc = class {
     return this.b.get(scheme);
   }
 };
-var $AEc = $kl("IExtHostFileSystemInfo");
+var $BEc = $kl("IExtHostFileSystemInfo");
 
 // out-build/vs/base/common/uuid.js
 var $6s = function() {
@@ -29218,7 +29218,7 @@ var ExtHostWorkspaceImpl = class _ExtHostWorkspaceImpl extends $Dl {
     return this.s.get(uri);
   }
 };
-var $VEc = class $VEc2 {
+var $WEc = class $WEc2 {
   constructor(extHostRpc, initData, extHostFileSystemInfo, logService, uriTransformerService) {
     this.c = new $0e();
     this.onDidChangeWorkspace = this.c.event;
@@ -29776,14 +29776,14 @@ var $VEc = class $VEc2 {
     return buff.buffer;
   }
 };
-$VEc = __decorate([
+$WEc = __decorate([
   __param(0, $eZ),
   __param(1, $uZ),
-  __param(2, $AEc),
+  __param(2, $BEc),
   __param(3, $5n),
-  __param(4, $TEc)
-], $VEc);
-var $WEc = $kl("IExtHostWorkspace");
+  __param(4, $UEc)
+], $WEc);
+var $XEc = $kl("IExtHostWorkspace");
 function parseSearchExcludeInclude(include) {
   let pattern;
   let includeFolder;
@@ -32458,7 +32458,7 @@ function scopeToOverrides(scope) {
   }
   return void 0;
 }
-var $XEc = class $XEc2 {
+var $YEc = class $YEc2 {
   constructor(extHostRpc, extHostWorkspace, logService) {
     this.a = extHostRpc.getProxy($oW.MainThreadConfiguration);
     this.c = extHostWorkspace;
@@ -32470,19 +32470,19 @@ var $XEc = class $XEc2 {
     return this.d.wait().then((_) => this.e);
   }
   $initializeConfiguration(data2) {
-    this.e = new $YEc(this.a, this.c, data2, this.b);
+    this.e = new $ZEc(this.a, this.c, data2, this.b);
     this.d.open();
   }
   $acceptConfigurationChanged(data2, change) {
     this.getConfigProvider().then((provider) => provider.$acceptConfigurationChanged(data2, change));
   }
 };
-$XEc = __decorate([
+$YEc = __decorate([
   __param(0, $eZ),
-  __param(1, $WEc),
+  __param(1, $XEc),
   __param(2, $5n)
-], $XEc);
-var $YEc = class {
+], $YEc);
+var $ZEc = class {
   constructor(proxy, extHostWorkspace, data2, logService) {
     this.a = new $0e();
     this.b = proxy;
@@ -32677,16 +32677,16 @@ var $YEc = class {
     }, /* @__PURE__ */ new Map());
   }
 };
-var $ZEc = $kl("IExtHostConfiguration");
+var $1Ec = $kl("IExtHostConfiguration");
 
 // out-build/vs/workbench/services/extensions/common/extensionDescriptionRegistry.js
-var $Fuc = class {
+var $Guc = class {
   constructor(versionId, removedDueToLooping) {
     this.versionId = versionId;
     this.removedDueToLooping = removedDueToLooping;
   }
 };
-var $Guc = class _$Guc {
+var $Huc = class _$Huc {
   static isHostExtension(extensionId, myRegistry, globalRegistry) {
     if (myRegistry.getExtensionDescription(extensionId)) {
       return false;
@@ -32741,12 +32741,12 @@ var $Guc = class _$Guc {
   deltaExtensions(toAdd, toRemove) {
     this.e = removeExtensions(this.e, toRemove);
     this.e = this.e.concat(toAdd);
-    const looping = _$Guc.l(this.e);
+    const looping = _$Huc.l(this.e);
     this.e = removeExtensions(this.e, looping.map((ext) => ext.identifier));
     this.k();
     this.d++;
     this.c.fire(void 0);
-    return new $Fuc(this.d, looping);
+    return new $Guc(this.d, looping);
   }
   static l(extensionDescriptions) {
     const G = new class {
@@ -32830,7 +32830,7 @@ var $Guc = class _$Guc {
     return this.g.slice(0);
   }
   getSnapshot() {
-    return new $Huc(this.d, this.getAllExtensionDescriptions());
+    return new $Iuc(this.d, this.getAllExtensionDescriptions());
   }
   getExtensionDescription(extensionId) {
     const extension = this.f.get(extensionId);
@@ -32848,7 +32848,7 @@ var $Guc = class _$Guc {
     return this.getExtensionDescription(extensionId) ?? (uuid ? this.getExtensionDescriptionByUUID(uuid) : void 0);
   }
 };
-var $Huc = class {
+var $Iuc = class {
   constructor(versionId, extensions) {
     this.versionId = versionId;
     this.extensions = extensions;
@@ -32882,9 +32882,9 @@ function removeExtensions(arr, toRemove) {
 }
 
 // out-build/vs/workbench/api/common/extHostExtensionActivator.js
-var $bFc = class _$bFc {
+var $cFc = class _$cFc {
   static {
-    this.NONE = new _$bFc(false, -1, -1, -1);
+    this.NONE = new _$cFc(false, -1, -1, -1);
   }
   constructor(startup, codeLoadingTime, activateCallTime, activateResolvedTime) {
     this.startup = startup;
@@ -32893,7 +32893,7 @@ var $bFc = class _$bFc {
     this.activateResolvedTime = activateResolvedTime;
   }
 };
-var $cFc = class {
+var $dFc = class {
   constructor(startup) {
     this.a = startup;
     this.b = -1;
@@ -32910,7 +32910,7 @@ var $cFc = class {
     return stop - start;
   }
   build() {
-    return new $bFc(this.a, this.j(this.b, this.c), this.j(this.d, this.f), this.j(this.g, this.h));
+    return new $cFc(this.a, this.j(this.b, this.c), this.j(this.d, this.f), this.j(this.g, this.h));
   }
   codeLoadingStart() {
     this.b = Date.now();
@@ -32931,7 +32931,7 @@ var $cFc = class {
     this.h = Date.now();
   }
 };
-var $dFc = class {
+var $eFc = class {
   constructor(activationFailed, activationFailedError, activationTimes, module2, exports2, disposable) {
     this.activationFailed = activationFailed;
     this.activationFailedError = activationFailedError;
@@ -32941,22 +32941,22 @@ var $dFc = class {
     this.disposable = disposable;
   }
 };
-var $eFc = class extends $dFc {
+var $fFc = class extends $eFc {
   constructor(activationTimes) {
     super(false, null, activationTimes, { activate: void 0, deactivate: void 0 }, void 0, $sd.None);
   }
 };
-var $fFc = class extends $dFc {
+var $gFc = class extends $eFc {
   constructor() {
-    super(false, null, $bFc.NONE, { activate: void 0, deactivate: void 0 }, void 0, $sd.None);
+    super(false, null, $cFc.NONE, { activate: void 0, deactivate: void 0 }, void 0, $sd.None);
   }
 };
-var FailedExtension = class extends $dFc {
+var FailedExtension = class extends $eFc {
   constructor(activationError) {
-    super(true, activationError, $bFc.NONE, { activate: void 0, deactivate: void 0 }, void 0, $sd.None);
+    super(true, activationError, $cFc.NONE, { activate: void 0, deactivate: void 0 }, void 0, $sd.None);
   }
 };
-var $gFc = class $gFc2 {
+var $hFc = class $hFc2 {
   constructor(registry, globalRegistry, host, g) {
     this.g = g;
     this.a = registry;
@@ -33071,7 +33071,7 @@ var $gFc = class $gFc2 {
     return operation;
   }
   l(extensionId) {
-    return $Guc.isHostExtension(extensionId, this.a, this.b);
+    return $Huc.isHostExtension(extensionId, this.a, this.b);
   }
   m(extensionId) {
     const extensionDescription = this.b.getExtensionDescription(extensionId);
@@ -33081,9 +33081,9 @@ var $gFc = class $gFc2 {
     return !extensionDescription.main && !extensionDescription.browser;
   }
 };
-$gFc = __decorate([
+$hFc = __decorate([
   __param(3, $5n)
-], $gFc);
+], $hFc);
 var ActivationOperation = class ActivationOperation2 {
   get value() {
     return this.h;
@@ -33170,7 +33170,7 @@ ActivationOperation = __decorate([
 ], ActivationOperation);
 
 // out-build/vs/workbench/api/common/extHostStorage.js
-var $hFc = class {
+var $iFc = class {
   constructor(mainContext, c) {
     this.c = c;
     this.b = new $0e();
@@ -33206,10 +33206,10 @@ var $hFc = class {
     return void 0;
   }
 };
-var $iFc = $kl("IExtHostStorage");
+var $jFc = $kl("IExtHostStorage");
 
 // out-build/vs/workbench/api/common/extHostMemento.js
-var $jFc = class {
+var $kFc = class {
   constructor(id2, global2, storage) {
     this.h = /* @__PURE__ */ new Map();
     this.a = id2;
@@ -33275,7 +33275,7 @@ var $jFc = class {
     this.g.dispose();
   }
 };
-var $kFc = class extends $jFc {
+var $lFc = class extends $kFc {
   setKeysForSync(keys) {
     this.c.registerExtensionStorageKeysToSync({ id: this.a, version: this.j.version }, keys);
   }
@@ -33286,8 +33286,8 @@ var $kFc = class extends $jFc {
 };
 
 // out-build/vs/workbench/api/common/extHostFileSystemConsumer.js
-var $1Ec_1;
-var $1Ec = $1Ec_1 = class $1Ec2 {
+var $2Ec_1;
+var $2Ec = $2Ec_1 = class $2Ec2 {
   constructor(extHostRpc, fileSystemInfo) {
     this.b = /* @__PURE__ */ new Map();
     this.c = new $mi();
@@ -33312,7 +33312,7 @@ var $1Ec = $1Ec_1 = class $1Ec2 {
             permissions: stat.permissions === FilePermission.Readonly ? 1 : void 0
           };
         } catch (err) {
-          $1Ec_1.e(err);
+          $2Ec_1.e(err);
         }
       },
       async readDirectory(uri) {
@@ -33325,7 +33325,7 @@ var $1Ec = $1Ec_1 = class $1Ec2 {
             return await that.a.$readdir(uri);
           }
         } catch (err) {
-          return $1Ec_1.e(err);
+          return $2Ec_1.e(err);
         }
       },
       async createDirectory(uri) {
@@ -33338,7 +33338,7 @@ var $1Ec = $1Ec_1 = class $1Ec2 {
             return await that.a.$mkdir(uri);
           }
         } catch (err) {
-          return $1Ec_1.e(err);
+          return $2Ec_1.e(err);
         }
       },
       async readFile(uri) {
@@ -33352,7 +33352,7 @@ var $1Ec = $1Ec_1 = class $1Ec2 {
             return buff.buffer;
           }
         } catch (err) {
-          return $1Ec_1.e(err);
+          return $2Ec_1.e(err);
         }
       },
       async writeFile(uri, content) {
@@ -33366,7 +33366,7 @@ var $1Ec = $1Ec_1 = class $1Ec2 {
             return await that.a.$writeFile(uri, $Wi.wrap(content));
           }
         } catch (err) {
-          return $1Ec_1.e(err);
+          return $2Ec_1.e(err);
         }
       },
       async delete(uri, options2) {
@@ -33379,21 +33379,21 @@ var $1Ec = $1Ec_1 = class $1Ec2 {
             return await that.a.$delete(uri, { recursive: false, useTrash: false, atomic: false, ...options2 });
           }
         } catch (err) {
-          return $1Ec_1.e(err);
+          return $2Ec_1.e(err);
         }
       },
       async rename(oldUri, newUri, options2) {
         try {
           return await that.a.$rename(oldUri, newUri, { ...{ overwrite: false }, ...options2 });
         } catch (err) {
-          return $1Ec_1.e(err);
+          return $2Ec_1.e(err);
         }
       },
       async copy(source, destination, options2) {
         try {
           return await that.a.$copy(source, destination, { ...{ overwrite: false }, ...options2 });
         } catch (err) {
-          return $1Ec_1.e(err);
+          return $2Ec_1.e(err);
         }
       },
       isWritableFileSystem(scheme) {
@@ -33487,15 +33487,15 @@ var $1Ec = $1Ec_1 = class $1Ec2 {
     return this.b.get(scheme)?.extUri ?? $Fh;
   }
 };
-$1Ec = $1Ec_1 = __decorate([
+$2Ec = $2Ec_1 = __decorate([
   __param(0, $eZ),
-  __param(1, $AEc)
-], $1Ec);
-var $2Ec = $kl("IExtHostConsumerFileSystem");
+  __param(1, $BEc)
+], $2Ec);
+var $3Ec = $kl("IExtHostConsumerFileSystem");
 
 // out-build/vs/workbench/api/common/extHostStoragePaths.js
-var $3Ec = $kl("IExtensionStoragePaths");
-var $4Ec = class $4Ec2 {
+var $4Ec = $kl("IExtensionStoragePaths");
+var $5Ec = class $5Ec2 {
   constructor(initData, d, f) {
     this.d = d;
     this.f = f;
@@ -33544,11 +33544,11 @@ var $4Ec = class $4Ec2 {
   onWillDeactivateAll() {
   }
 };
-$4Ec = __decorate([
+$5Ec = __decorate([
   __param(0, $uZ),
   __param(1, $5n),
-  __param(2, $2Ec)
-], $4Ec);
+  __param(2, $3Ec)
+], $5Ec);
 
 // out-build/vs/platform/tunnel/common/tunnel.js
 var $oD = $kl("tunnelService");
@@ -34920,8 +34920,8 @@ var $EZ = class {
 };
 
 // out-build/vs/workbench/api/common/extHostTerminalService.js
-var $lFc = $kl("IExtHostTerminalService");
-var $mFc = class extends $sd {
+var $mFc = $kl("IExtHostTerminalService");
+var $nFc = class extends $sd {
   constructor(u, _id, w, y) {
     super();
     this.u = u;
@@ -35170,7 +35170,7 @@ var ExtHostPseudoterminal = class {
   }
 };
 var nextLinkId = 1;
-var $nFc = class $nFc2 extends $sd {
+var $oFc = class $oFc2 extends $sd {
   get activeTerminal() {
     return this.b?.value;
   }
@@ -35259,7 +35259,7 @@ var $nFc = class $nFc2 extends $sd {
     return profile?.args || [];
   }
   createExtensionTerminal(options2, internalOptions) {
-    const terminal = new $mFc(this.a, $6s(), options2, options2.name);
+    const terminal = new $nFc(this.a, $6s(), options2, options2.name);
     const p = new ExtHostPseudoterminal(options2.pty);
     terminal.createExtensionTerminal(options2.location, internalOptions, this.S(options2, internalOptions).resolvedExtHostIdentifier, asTerminalIcon(options2.iconPath), asTerminalColor(options2.color)).then((id2) => {
       const disposable = this.U(id2, p);
@@ -35369,7 +35369,7 @@ var $nFc = class $nFc2 extends $sd {
       env: shellLaunchConfigDto.env,
       hideFromUser: shellLaunchConfigDto.hideFromUser
     };
-    const terminal = new $mFc(this.a, id2, creationOptions, name2);
+    const terminal = new $nFc(this.a, id2, creationOptions, name2);
     this.f.push(terminal);
     this.J.fire(terminal.value);
     terminal.isOpen = true;
@@ -35681,10 +35681,10 @@ var $nFc = class $nFc2 extends $sd {
     }));
   }
 };
-$nFc = __decorate([
+$oFc = __decorate([
   __param(1, $AZ),
   __param(2, $eZ)
-], $nFc);
+], $oFc);
 var UnifiedEnvironmentVariableCollection = class extends $sd {
   get persistent() {
     return this.b;
@@ -35864,7 +35864,7 @@ var ScopedEnvironmentVariableCollection = class {
     return this.b.getDescription(this.d);
   }
 };
-var $oFc = class $oFc2 extends $nFc {
+var $pFc = class $pFc2 extends $oFc {
   constructor(extHostCommands, extHostRpc) {
     super(false, extHostCommands, extHostRpc);
   }
@@ -35875,10 +35875,10 @@ var $oFc = class $oFc2 extends $nFc {
     throw new $sb();
   }
 };
-$oFc = __decorate([
+$pFc = __decorate([
   __param(0, $AZ),
   __param(1, $eZ)
-], $oFc);
+], $pFc);
 function asTerminalIcon(iconPath) {
   if (!iconPath || typeof iconPath === "string") {
     return void 0;
@@ -35969,8 +35969,8 @@ var $dV = $kl("IAuthenticationService");
 var $eV = $kl("IAuthenticationExtensionsService");
 
 // out-build/vs/workbench/api/common/extHostAuthentication.js
-var $GEc = $kl("IExtHostAuthentication");
-var $HEc = class $HEc2 {
+var $HEc = $kl("IExtHostAuthentication");
+var $IEc = class $IEc2 {
   constructor(extHostRpc) {
     this.b = /* @__PURE__ */ new Map();
     this.c = new $0e();
@@ -36050,9 +36050,9 @@ var $HEc = class $HEc2 {
     return Promise.resolve();
   }
 };
-$HEc = __decorate([
+$IEc = __decorate([
   __param(0, $eZ)
-], $HEc);
+], $IEc);
 var TaskSingler = class {
   constructor() {
     this.a = /* @__PURE__ */ new Map();
@@ -36069,8 +36069,8 @@ var TaskSingler = class {
 };
 
 // out-build/vs/workbench/api/common/extHostLanguageModels.js
-var $KEc_1;
-var $JEc = $kl("IExtHostLanguageModels");
+var $LEc_1;
+var $KEc = $kl("IExtHostLanguageModels");
 var LanguageModelResponseStream = class {
   constructor(option, stream) {
     this.option = option;
@@ -36143,9 +36143,9 @@ var LanguageModelResponse = class {
     }
   }
 };
-var $KEc = class $KEc2 {
+var $LEc = class $LEc2 {
   static {
-    $KEc_1 = this;
+    $LEc_1 = this;
   }
   static {
     this.a = 1;
@@ -36169,7 +36169,7 @@ var $KEc = class $KEc2 {
     this.d.dispose();
   }
   registerLanguageModel(extension, identifier, provider, metadata) {
-    const handle = $KEc_1.a++;
+    const handle = $LEc_1.a++;
     this.f.set(handle, { extension: extension.identifier, provider, languageModelId: identifier });
     let auth;
     if (metadata.auth) {
@@ -36490,7 +36490,7 @@ var $KEc = class $KEc2 {
   }
   registerIgnoredFileProvider(extension, provider) {
     $cQ(extension, "chatParticipantPrivate");
-    const handle = $KEc_1.a++;
+    const handle = $LEc_1.a++;
     this.b.$registerFileIgnoreProvider(handle);
     this.j.set(handle, provider);
     return $qd(() => {
@@ -36499,11 +36499,11 @@ var $KEc = class $KEc2 {
     });
   }
 };
-$KEc = $KEc_1 = __decorate([
+$LEc = $LEc_1 = __decorate([
   __param(0, $eZ),
   __param(1, $5n),
-  __param(2, $GEc)
-], $KEc);
+  __param(2, $HEc)
+], $LEc);
 
 // out-build/vs/base/common/labels.js
 function $Hu(path, isWindowsOS = $l) {
@@ -37686,7 +37686,7 @@ async function _activateIfGlobPatterns(host, extensionId, globPatterns, activate
 }
 
 // out-build/vs/workbench/api/common/extHostSecretState.js
-var $pFc = class {
+var $qFc = class {
   constructor(mainContext) {
     this.b = new $0e();
     this.onDidChangePassword = this.b.event;
@@ -37705,10 +37705,10 @@ var $pFc = class {
     return this.a.$deletePassword(extensionId, key);
   }
 };
-var $qFc = $kl("IExtHostSecretState");
+var $rFc = $kl("IExtHostSecretState");
 
 // out-build/vs/workbench/api/common/extHostSecrets.js
-var $rFc = class {
+var $sFc = class {
   #secretState;
   constructor(extensionDescription, secretState) {
     this.disposables = new $rd();
@@ -37731,7 +37731,7 @@ var $rFc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostLocalizationService.js
-var $sFc = class $sFc2 {
+var $tFc = class $tFc2 {
   constructor(initData, rpc, f) {
     this.f = f;
     this.d = /* @__PURE__ */ new Map();
@@ -37796,16 +37796,16 @@ var $sFc = class $sFc2 {
     return extension.l10n ? URI.joinPath(extension.extensionLocation, extension.l10n, `bundle.l10n.${this.b}.json`) : void 0;
   }
 };
-$sFc = __decorate([
+$tFc = __decorate([
   __param(0, $uZ),
   __param(1, $eZ),
   __param(2, $5n)
-], $sFc);
-var $tFc = $kl("IExtHostLocalizationService");
+], $tFc);
+var $uFc = $kl("IExtHostLocalizationService");
 
 // out-build/vs/workbench/api/common/extHostManagedSockets.js
-var $uFc = $kl("IExtHostManagedSockets");
-var $vFc = class $vFc2 {
+var $vFc = $kl("IExtHostManagedSockets");
+var $wFc = class $wFc2 {
   constructor(extHostRpc) {
     this.b = 0;
     this.c = null;
@@ -37856,9 +37856,9 @@ var $vFc = class $vFc2 {
     await this.d.get(socketId)?.actual.drain?.();
   }
 };
-$vFc = __decorate([
+$wFc = __decorate([
   __param(0, $eZ)
-], $vFc);
+], $wFc);
 var ManagedSocketFactory = class {
   constructor(socketFactoryId, makeConnection) {
     this.socketFactoryId = socketFactoryId;
@@ -37875,9 +37875,9 @@ var ManagedSocket = class extends $sd {
 };
 
 // out-build/vs/workbench/api/common/extHostExtensionService.js
-var $xFc_1;
-var $wFc = $kl("IHostUtils");
-var $xFc = $xFc_1 = class $xFc2 extends $sd {
+var $yFc_1;
+var $xFc = $kl("IHostUtils");
+var $yFc = $yFc_1 = class $yFc2 extends $sd {
   constructor(instaService, hostUtils, extHostContext, extHostWorkspace, extHostConfiguration, logService, initData, storagePath, extHostTunnelService, extHostTerminalService, extHostLocalizationService, Y, Z) {
     super();
     this.Y = Y;
@@ -37903,25 +37903,25 @@ var $xFc = $xFc_1 = class $xFc2 extends $sd {
     this.G = new $ci();
     this.H = new $ci();
     this.I = new SyncedActivationEventsReader(this.f.extensions.activationEvents);
-    this.L = new $Guc(this.I, this.f.extensions.allExtensions);
+    this.L = new $Huc(this.I, this.f.extensions.allExtensions);
     const myExtensionsSet = new $NA(this.f.extensions.myExtensions);
-    this.J = new $Guc(this.I, filterExtensions(this.L, myExtensionsSet));
+    this.J = new $Huc(this.I, filterExtensions(this.L, myExtensionsSet));
     if ($w) {
       this.s.info(`Creating extension host with the following global extensions: ${printExtIds(this.L)}`);
       this.s.info(`Creating extension host with the following local extensions: ${printExtIds(this.J)}`);
     }
-    this.M = new $hFc(this.g, this.s);
-    this.N = new $pFc(this.g);
+    this.M = new $iFc(this.g, this.s);
+    this.N = new $qFc(this.g);
     this.O = storagePath;
-    this.h = this.q.add(instaService.createChild(new $il([$iFc, this.M], [$qFc, this.N])));
-    this.P = this.B(new $gFc(this.J, this.L, {
+    this.h = this.q.add(instaService.createChild(new $il([$jFc, this.M], [$rFc, this.N])));
+    this.P = this.B(new $hFc(this.J, this.L, {
       onExtensionActivationError: (extensionId, error, missingExtensionDependency) => {
         this.C.$onExtensionActivationError(extensionId, $ib(error), missingExtensionDependency);
       },
       actualActivateExtension: async (extensionId, reason) => {
-        if ($Guc.isHostExtension(extensionId, this.J, this.L)) {
+        if ($Huc.isHostExtension(extensionId, this.J, this.L)) {
           await this.C.$activateExtension(extensionId, reason);
-          return new $fFc();
+          return new $gFc();
         }
         const extensionDescription = this.J.getExtensionDescription(extensionId);
         return this.fb(extensionDescription, reason);
@@ -38050,7 +38050,7 @@ var $xFc = $xFc_1 = class $xFc2 extends $sd {
   async getExtensionPathIndex() {
     if (!this.Q) {
       this.Q = this.db(this.J.getAllExtensionDescriptions()).then((searchTree) => {
-        return new $AFc(searchTree);
+        return new $BFc(searchTree);
       });
     }
     return this.Q;
@@ -38131,18 +38131,18 @@ var $xFc = $xFc_1 = class $xFc2 extends $sd {
     this.z.$publicLog2("activatePlugin", event);
     const entryPoint = this.wb(extensionDescription);
     if (!entryPoint) {
-      return Promise.resolve(new $eFc($bFc.NONE));
+      return Promise.resolve(new $fFc($cFc.NONE));
     }
     this.s.info(`ExtensionService#_doActivateExtension ${extensionDescription.identifier.value}, startup: ${reason.startup}, activationEvent: '${reason.activationEvent}'${extensionDescription.identifier.value !== reason.extensionId.value ? `, root cause: ${reason.extensionId.value}` : ``}`);
     this.s.flush();
     const extensionInternalStore = new $rd();
-    const activationTimesBuilder = new $cFc(reason.startup);
+    const activationTimesBuilder = new $dFc(reason.startup);
     return Promise.all([
       this.xb(extensionDescription, $Ph(extensionDescription.extensionLocation, entryPoint), activationTimesBuilder),
       this.ib(extensionDescription, extensionInternalStore)
     ]).then((values) => {
       $S(`code/extHost/willActivateExtension/${extensionDescription.identifier.value}`);
-      return $xFc_1.jb(this.s, extensionDescription.identifier, values[0], values[1], extensionInternalStore, activationTimesBuilder);
+      return $yFc_1.jb(this.s, extensionDescription.identifier, values[0], values[1], extensionInternalStore, activationTimesBuilder);
     }).then((activatedExtension) => {
       $S(`code/extHost/didActivateExtension/${extensionDescription.identifier.value}`);
       return activatedExtension;
@@ -38150,9 +38150,9 @@ var $xFc = $xFc_1 = class $xFc2 extends $sd {
   }
   ib(extensionDescription, extensionInternalStore) {
     const languageModelAccessInformation = this.Z.createLanguageModelAccessInformation(extensionDescription);
-    const globalState = extensionInternalStore.add(new $kFc(extensionDescription, this.M));
-    const workspaceState = extensionInternalStore.add(new $jFc(extensionDescription.identifier.value, false, this.M));
-    const secrets = extensionInternalStore.add(new $rFc(extensionDescription, this.N));
+    const globalState = extensionInternalStore.add(new $lFc(extensionDescription, this.M));
+    const workspaceState = extensionInternalStore.add(new $kFc(extensionDescription.identifier.value, false, this.M));
+    const secrets = extensionInternalStore.add(new $sFc(extensionDescription, this.N));
     const extensionMode = extensionDescription.isUnderDevelopment ? this.f.environment.extensionTestsLocationURI ? ExtensionMode.Test : ExtensionMode.Development : ExtensionMode.Production;
     const extensionKind = this.f.remote.isRemote ? ExtensionKind.Workspace : ExtensionKind.UI;
     this.s.trace(`ExtensionService#loadExtensionContext ${extensionDescription.identifier.value}`);
@@ -38205,7 +38205,7 @@ var $xFc = $xFc_1 = class $xFc2 extends $sd {
         },
         get extension() {
           if (extension === void 0) {
-            extension = new $zFc(that, extensionDescription.identifier, extensionDescription, extensionKind, false);
+            extension = new $AFc(that, extensionDescription.identifier, extensionDescription, extensionKind, false);
           }
           return extension;
         },
@@ -38239,7 +38239,7 @@ var $xFc = $xFc_1 = class $xFc2 extends $sd {
       deactivate: void 0
     };
     return this.kb(logService, extensionId, extensionModule, context, activationTimesBuilder).then((extensionExports) => {
-      return new $dFc(false, null, activationTimesBuilder.build(), extensionModule, extensionExports, $qd(() => {
+      return new $eFc(false, null, activationTimesBuilder.build(), extensionModule, extensionExports, $qd(() => {
         extensionInternalStore.dispose();
         $nd(context.subscriptions);
       }));
@@ -38376,7 +38376,7 @@ var $xFc = $xFc_1 = class $xFc2 extends $sd {
     if (!extensionDevelopmentLocationURI || !extensionTestsLocationURI) {
       throw new Error(localize(2863, null));
     }
-    const testRunner = await this.xb(null, extensionTestsLocationURI, new $cFc(false));
+    const testRunner = await this.xb(null, extensionTestsLocationURI, new $dFc(false));
     if (!testRunner || typeof testRunner.run !== "function") {
       throw new Error(localize(2864, null, extensionTestsLocationURI.toString()));
     }
@@ -38640,24 +38640,24 @@ var $xFc = $xFc_1 = class $xFc2 extends $sd {
     this.a.fire();
   }
 };
-$xFc = $xFc_1 = __decorate([
+$yFc = $yFc_1 = __decorate([
   __param(0, $jl),
-  __param(1, $wFc),
+  __param(1, $xFc),
   __param(2, $eZ),
-  __param(3, $WEc),
-  __param(4, $ZEc),
+  __param(3, $XEc),
+  __param(4, $1Ec),
   __param(5, $5n),
   __param(6, $uZ),
-  __param(7, $3Ec),
+  __param(7, $4Ec),
   __param(8, $1Xb),
-  __param(9, $lFc),
-  __param(10, $tFc),
-  __param(11, $uFc),
-  __param(12, $JEc)
-], $xFc);
+  __param(9, $mFc),
+  __param(10, $uFc),
+  __param(11, $vFc),
+  __param(12, $KEc)
+], $yFc);
 function applyExtensionsDelta(activationEventsReader, oldGlobalRegistry, oldMyRegistry, extensionsDelta) {
   activationEventsReader.addActivationEvents(extensionsDelta.addActivationEvents);
-  const globalRegistry = new $Guc(activationEventsReader, oldGlobalRegistry.getAllExtensionDescriptions());
+  const globalRegistry = new $Huc(activationEventsReader, oldGlobalRegistry.getAllExtensionDescriptions());
   globalRegistry.deltaExtensions(extensionsDelta.toAdd, extensionsDelta.toRemove);
   const myExtensionsSet = new $NA(oldMyRegistry.getAllExtensionDescriptions().map((extension) => extension.identifier));
   for (const extensionId of extensionsDelta.myToRemove) {
@@ -38685,8 +38685,8 @@ function getTelemetryActivationEvent(extensionDescription, reason) {
 function printExtIds(registry) {
   return registry.getAllExtensionDescriptions().map((ext) => ext.identifier.value).join(",");
 }
-var $yFc = $kl("IExtHostExtensionService");
-var $zFc = class {
+var $zFc = $kl("IExtHostExtensionService");
+var $AFc = class {
   #extensionService;
   #originExtensionId;
   #identifier;
@@ -38721,7 +38721,7 @@ var $zFc = class {
 function filterExtensions(globalRegistry, desiredExtensions) {
   return globalRegistry.getAllExtensionDescriptions().filter((extension) => desiredExtensions.has(extension.identifier));
 }
-var $AFc = class {
+var $BFc = class {
   constructor(a) {
     this.a = a;
   }
@@ -38751,7 +38751,7 @@ var SyncedActivationEventsReader = class {
 };
 
 // out-build/vs/workbench/api/common/extensionHostMain.js
-var $TGc = class {
+var $UGc = class {
   static async installEarlyHandler(accessor) {
     Error.stackTraceLimit = 100;
     const logService = accessor.get($5n);
@@ -38766,7 +38766,7 @@ var $TGc = class {
   static async installFullHandler(accessor) {
     const logService = accessor.get($5n);
     const rpcService = accessor.get($eZ);
-    const extensionService = accessor.get($yFc);
+    const extensionService = accessor.get($zFc);
     const extensionTelemetry = accessor.get($yZ);
     const mainThreadExtensions = rpcService.getProxy($oW.MainThreadExtensionService);
     const mainThreadErrors = rpcService.getProxy($oW.MainThreadErrors);
@@ -38831,18 +38831,18 @@ var $TGc = class {
     });
   }
 };
-var $UGc = class _$UGc {
+var $VGc = class _$VGc {
   constructor(protocol, initData, hostUtils, uriTransformer, messagePorts) {
     this.a = hostUtils;
-    this.b = new $Ouc(protocol, null, uriTransformer);
-    initData = _$UGc.e(initData, this.b);
+    this.b = new $Puc(protocol, null, uriTransformer);
+    initData = _$VGc.e(initData, this.b);
     const services = new $il(...$OD());
     services.set($uZ, { _serviceBrand: void 0, ...initData, messagePorts });
     services.set($eZ, new $fZ(this.b));
-    services.set($TEc, new $UEc(uriTransformer));
-    services.set($wFc, hostUtils);
+    services.set($UEc, new $VEc(uriTransformer));
+    services.set($xFc, hostUtils);
     const instaService = new $5C(services, true);
-    instaService.invokeFunction($TGc.installEarlyHandler);
+    instaService.invokeFunction($UGc.installEarlyHandler);
     this.d = instaService.invokeFunction((accessor) => accessor.get($5n));
     $S(`code/extHost/didCreateServices`);
     if (this.a.pid) {
@@ -38851,9 +38851,9 @@ var $UGc = class _$UGc {
       this.d.info(`Extension host started`);
     }
     this.d.trace("initData", initData);
-    this.c = instaService.invokeFunction((accessor) => accessor.get($yFc));
+    this.c = instaService.invokeFunction((accessor) => accessor.get($zFc));
     this.c.initialize();
-    instaService.invokeFunction($TGc.installFullHandler);
+    instaService.invokeFunction($UGc.installFullHandler);
   }
   async asBrowserUri(uri) {
     const mainThreadExtensionsProxy = this.b.getProxy($oW.MainThreadExtensionService);
@@ -38915,7 +38915,7 @@ var _bootstrapFnSource = function _bootstrapFn(workerUrl) {
   };
   globalThis.addEventListener("message", listener);
 }.toString();
-var $7Ic = class extends EventTarget {
+var $8Ic = class extends EventTarget {
   constructor(nativePostMessage2, stringOrUrl, options2) {
     super();
     this.onmessage = null;
@@ -39104,7 +39104,7 @@ var ExtHostLogOutputChannel = class extends ExtHostOutputChannel {
     this.append(value);
   }
 };
-var $nGc = class $nGc2 {
+var $oGc = class $oGc2 {
   constructor(extHostRpc, i, j, k, l, m) {
     this.i = i;
     this.j = j;
@@ -39271,21 +39271,21 @@ var $nGc = class $nGc2 {
     };
   }
 };
-$nGc = __decorate([
+$oGc = __decorate([
   __param(0, $eZ),
   __param(1, $uZ),
-  __param(2, $2Ec),
-  __param(3, $AEc),
+  __param(2, $3Ec),
+  __param(3, $BEc),
   __param(4, $6n),
   __param(5, $5n)
-], $nGc);
-var $oGc = $kl("IExtHostOutputService");
+], $oGc);
+var $pGc = $kl("IExtHostOutputService");
 
 // out-build/vs/workbench/api/common/extHostDecorations.js
-var $NFc_1;
-var $NFc = class $NFc2 {
+var $OFc_1;
+var $OFc = class $OFc2 {
   static {
-    $NFc_1 = this;
+    $OFc_1 = this;
   }
   static {
     this.c = 0;
@@ -39299,7 +39299,7 @@ var $NFc = class $NFc2 {
     this.g = extHostRpc.getProxy($oW.MainThreadDecorations);
   }
   registerFileDecorationProvider(provider, extensionDescription) {
-    const handle = $NFc_1.c++;
+    const handle = $OFc_1.c++;
     this.f.set(handle, { provider, extensionDescription });
     this.g.$registerDecorationProvider(handle, extensionDescription.identifier.value);
     const listener = provider.onDidChangeFileDecorations && provider.onDidChangeFileDecorations((e) => {
@@ -39308,7 +39308,7 @@ var $NFc = class $NFc2 {
         return;
       }
       const array = $4b(e);
-      if (array.length <= $NFc_1.d) {
+      if (array.length <= $OFc_1.d) {
         this.g.$onDidChange(handle, array);
         return;
       }
@@ -39322,7 +39322,7 @@ var $NFc = class $NFc2 {
           const myDirname = $rc(obj.uri.path);
           if (lastDirname !== myDirname) {
             lastDirname = myDirname;
-            if (picked.push(obj.uri) >= $NFc_1.d) {
+            if (picked.push(obj.uri) >= $OFc_1.d) {
               break outer;
             }
           }
@@ -39365,11 +39365,11 @@ var $NFc = class $NFc2 {
     return result;
   }
 };
-$NFc = $NFc_1 = __decorate([
+$OFc = $OFc_1 = __decorate([
   __param(0, $eZ),
   __param(1, $5n)
-], $NFc);
-var $OFc = $kl("IExtHostDecorations");
+], $OFc);
+var $PFc = $kl("IExtHostDecorations");
 
 // out-build/vs/editor/common/model/prefixSumComputer.js
 var $CN = class {
@@ -40612,8 +40612,8 @@ $oZ = __decorate([
 var $pZ = $kl("IExtHostDocumentsAndEditors");
 
 // out-build/vs/workbench/api/common/extHostApiDeprecationService.js
-var $wEc = $kl("IExtHostApiDeprecationService");
-var $xEc = class $xEc2 {
+var $xEc = $kl("IExtHostApiDeprecationService");
+var $yEc = class $yEc2 {
   constructor(rpc, c) {
     this.c = c;
     this.a = /* @__PURE__ */ new Set();
@@ -40637,11 +40637,11 @@ var $xEc = class $xEc2 {
     return `${apiId}-${extension.identifier.value}`;
   }
 };
-$xEc = __decorate([
+$yEc = __decorate([
   __param(0, $eZ),
   __param(1, $5n)
-], $xEc);
-var $yEc = Object.freeze(new class {
+], $yEc);
+var $zEc = Object.freeze(new class {
   report(_apiId, _extension, _warningMessage) {
   }
 }());
@@ -42533,7 +42533,7 @@ var TaskExecutionImpl = class {
   fireDidEndProcess(value) {
   }
 };
-var $zGc = class $zGc2 {
+var $AGc = class $AGc2 {
   constructor(extHostRpc, initData, workspaceService, editorService, configurationService, extHostTerminalService, logService, deprecationService) {
     this.q = new $0e();
     this.r = new $0e();
@@ -42781,17 +42781,17 @@ var $zGc = class $zGc2 {
     }
   }
 };
-$zGc = __decorate([
+$AGc = __decorate([
   __param(0, $eZ),
   __param(1, $uZ),
-  __param(2, $WEc),
+  __param(2, $XEc),
   __param(3, $pZ),
-  __param(4, $ZEc),
-  __param(5, $lFc),
+  __param(4, $1Ec),
+  __param(5, $mFc),
   __param(6, $5n),
-  __param(7, $wEc)
-], $zGc);
-var $AGc = class $AGc2 extends $zGc {
+  __param(7, $xEc)
+], $AGc);
+var $BGc = class $BGc2 extends $AGc {
   constructor(extHostRpc, initData, workspaceService, editorService, configurationService, extHostTerminalService, logService, deprecationService) {
     super(extHostRpc, initData, workspaceService, editorService, configurationService, extHostTerminalService, logService, deprecationService);
     this.registerTaskSystem(Schemas.vscodeRemote, {
@@ -42867,17 +42867,17 @@ var $AGc = class $AGc2 extends $zGc {
     return void 0;
   }
 };
-$AGc = __decorate([
+$BGc = __decorate([
   __param(0, $eZ),
   __param(1, $uZ),
-  __param(2, $WEc),
+  __param(2, $XEc),
   __param(3, $pZ),
-  __param(4, $ZEc),
-  __param(5, $lFc),
+  __param(4, $1Ec),
+  __param(5, $mFc),
   __param(6, $5n),
-  __param(7, $wEc)
-], $AGc);
-var $BGc = $kl("IExtHostTask");
+  __param(7, $xEc)
+], $BGc);
+var $CGc = $kl("IExtHostTask");
 
 // out-build/vs/workbench/contrib/debug/common/abstractDebugAdapter.js
 var $kTb = class {
@@ -43184,7 +43184,7 @@ function convertPaths(msg, fixSourcePath) {
 }
 
 // out-build/vs/workbench/api/common/extHostEditorTabs.js
-var $_Ec = $kl("IExtHostEditorTabs");
+var $aFc = $kl("IExtHostEditorTabs");
 var ExtHostEditorTab = class {
   constructor(dto, parentGroup, activeTabIdGetter) {
     this.e = activeTabIdGetter;
@@ -43345,7 +43345,7 @@ var ExtHostEditorTabGroup = class {
     return this.d;
   }
 };
-var $aFc = class $aFc2 {
+var $bFc = class $bFc2 {
   constructor(extHostRpc) {
     this.b = new $0e();
     this.c = new $0e();
@@ -43492,9 +43492,9 @@ var $aFc = class $aFc2 {
     return this.a.$closeGroup(extHostGroupIds, preserverFoucs);
   }
 };
-$aFc = __decorate([
+$bFc = __decorate([
   __param(0, $eZ)
-], $aFc);
+], $bFc);
 function isTabGroup(obj) {
   const tabGroup = obj;
   if (tabGroup.tabs !== void 0) {
@@ -43506,8 +43506,8 @@ function isTabGroup(obj) {
 // out-build/vs/workbench/api/common/extHostTesting.js
 var followupCounter = 0;
 var testResultInternalIDs = /* @__PURE__ */ new WeakMap();
-var $BFc = $kl("IExtHostTesting");
-var $CFc = class $CFc2 extends $sd {
+var $CFc = $kl("IExtHostTesting");
+var $DFc = class $DFc2 extends $sd {
   constructor(rpc, C, D, F) {
     super();
     this.C = C;
@@ -43522,7 +43522,7 @@ var $CFc = class $CFc2 extends $sd {
     this.results = [];
     this.h = rpc.getProxy($oW.MainThreadTesting);
     this.m = new TestObservers(this.h);
-    this.j = new $DFc(this.h, C);
+    this.j = new $EFc(this.h, C);
     D.registerArgumentProcessor({
       processArgument: (arg) => {
         switch (arg?.$mid) {
@@ -43626,7 +43626,7 @@ var $CFc = class $CFc2 extends $sd {
         while (profiles.has(profileId)) {
           profileId++;
         }
-        return new $FFc(this.h, profiles, activeProfiles, this.w.event, controllerId, profileId, label2, group, runHandler, isDefault, tag2, supportsContinuousRun);
+        return new $GFc(this.h, profiles, activeProfiles, this.w.event, controllerId, profileId, label2, group, runHandler, isDefault, tag2, supportsContinuousRun);
       },
       createTestItem(id2, label2, uri) {
         return new $rZ(controllerId, id2, label2, uri);
@@ -43932,7 +43932,7 @@ var $CFc = class $CFc2 extends $sd {
       return {};
     }
     const publicReq = new $0X(includeTests.some((i) => i.actual instanceof $sZ) ? void 0 : includeTests.map((t) => t.actual), excludeTests.map((t) => t.actual), profile, isContinuous);
-    const tracker = $XS(req) && this.j.prepareForMainThreadTestRun(extension, publicReq, $EFc.fromInternal(req, lookup.collection), profile, token);
+    const tracker = $XS(req) && this.j.prepareForMainThreadTestRun(extension, publicReq, $FFc.fromInternal(req, lookup.collection), profile, token);
     try {
       await profile.runHandler(publicReq, token);
       return {};
@@ -43947,12 +43947,12 @@ var $CFc = class $CFc2 extends $sd {
     }
   }
 };
-$CFc = __decorate([
+$DFc = __decorate([
   __param(0, $eZ),
   __param(1, $5n),
   __param(2, $AZ),
   __param(3, $pZ)
-], $CFc);
+], $DFc);
 var RUN_CANCEL_DEADLINE = 1e4;
 var TestRunTrackerState;
 (function(TestRunTrackerState2) {
@@ -44194,7 +44194,7 @@ var TestRunTracker = class extends $sd {
     super.dispose();
   }
 };
-var $DFc = class {
+var $EFc = class {
   get trackers() {
     return this.f.values();
   }
@@ -44254,7 +44254,7 @@ var $DFc = class {
     if (existing) {
       return existing.createRun(name2);
     }
-    const dto = $EFc.fromPublic(controllerId, collection, request, persist);
+    const dto = $FFc.fromPublic(controllerId, collection, request, persist);
     const profile = tryGetProfileFromTestRunReq(request);
     this.h.$startedExtensionTestRun({
       controllerId,
@@ -44283,17 +44283,17 @@ var tryGetProfileFromTestRunReq = (request) => {
   if (!request.profile) {
     return void 0;
   }
-  if (!(request.profile instanceof $FFc)) {
+  if (!(request.profile instanceof $GFc)) {
     throw new Error(`TestRunRequest.profile is not an instance created from TestController.createRunProfile`);
   }
   return request.profile;
 };
-var $EFc = class _$EFc {
+var $FFc = class _$FFc {
   static fromPublic(controllerId, collection, request, persist) {
-    return new _$EFc(controllerId, $6s(), persist, collection);
+    return new _$FFc(controllerId, $6s(), persist, collection);
   }
   static fromInternal(request, collection) {
-    return new _$EFc(request.controllerId, request.runId, true, collection);
+    return new _$FFc(request.controllerId, request.runId, true, collection);
   }
   constructor(controllerId, id2, isPersisted, colllection) {
     this.controllerId = controllerId;
@@ -44459,7 +44459,7 @@ var updateProfile = (impl, proxy, initial, update) => {
     proxy.$updateTestRunConfig(impl.controllerId, impl.profileId, update);
   }
 };
-var $FFc = class extends $9X {
+var $GFc = class extends $9X {
   #proxy;
   #activeProfiles;
   #onDidChangeDefaultProfiles;
@@ -45018,7 +45018,7 @@ var $G2 = class {
 };
 
 // out-build/vs/workbench/api/common/extHostVariableResolverService.js
-var $GFc = $kl("IExtHostVariableResolverProvider");
+var $HFc = $kl("IExtHostVariableResolverProvider");
 var ExtHostVariableResolverService = class extends $G2 {
   constructor(extensionService, workspaceService, editorService, editorTabs, configProvider, context, homeDir) {
     function getActiveUri() {
@@ -45110,7 +45110,7 @@ var ExtHostVariableResolverService = class extends $G2 {
     }, void 0, homeDir ? Promise.resolve(homeDir) : void 0, Promise.resolve(env));
   }
 };
-var $HFc = class $HFc2 extends $sd {
+var $IFc = class $IFc2 extends $sd {
   constructor(b, c, g, h, j) {
     super();
     this.b = b;
@@ -45135,17 +45135,17 @@ var $HFc = class $HFc2 extends $sd {
     return void 0;
   }
 };
-$HFc = __decorate([
-  __param(0, $yFc),
-  __param(1, $WEc),
+$IFc = __decorate([
+  __param(0, $zFc),
+  __param(1, $XEc),
   __param(2, $pZ),
-  __param(3, $ZEc),
-  __param(4, $_Ec)
-], $HFc);
+  __param(3, $1Ec),
+  __param(4, $aFc)
+], $IFc);
 
 // out-build/vs/workbench/api/common/extHostDebugService.js
-var $IFc = $kl("IExtHostDebugService");
-var $JFc = class $JFc2 extends $sd {
+var $JFc = $kl("IExtHostDebugService");
+var $KFc = class $KFc2 extends $sd {
   get onDidStartDebugSession() {
     return this.y.event;
   }
@@ -45196,7 +45196,7 @@ var $JFc = class $JFc2 extends $sd {
     this.u = extHostRpcService.getProxy($oW.MainThreadDebugService);
     this.I = this.B(new $0e());
     this.L = this.B(new $0e());
-    this.G = new $LFc(this.u);
+    this.G = new $MFc(this.u);
     this.H = /* @__PURE__ */ new Map();
     this.$.getExtensionRegistry().then((extensionRegistry) => {
       this.B(extensionRegistry.onDidChange((_) => {
@@ -45938,7 +45938,7 @@ var $JFc = class $JFc2 extends $sd {
         if (!ds) {
           const folder = await this.yb(dto.folderUri);
           const parent = dto.parent ? this.w.get(dto.parent) : void 0;
-          ds = new $KFc(this.u, dto.id, dto.type, dto.name, folder, dto.configuration, parent?.api);
+          ds = new $LFc(this.u, dto.id, dto.type, dto.name, folder, dto.configuration, parent?.api);
           this.w.set(ds.id, ds);
           this.u.$sessionCached(ds.id);
         }
@@ -45998,17 +45998,17 @@ var $JFc = class $JFc2 extends $sd {
     };
   }
 };
-$JFc = __decorate([
+$KFc = __decorate([
   __param(0, $eZ),
-  __param(1, $WEc),
-  __param(2, $yFc),
-  __param(3, $ZEc),
-  __param(4, $_Ec),
-  __param(5, $GFc),
+  __param(1, $XEc),
+  __param(2, $zFc),
+  __param(3, $1Ec),
+  __param(4, $aFc),
+  __param(5, $HFc),
   __param(6, $AZ),
-  __param(7, $BFc)
-], $JFc);
-var $KFc = class {
+  __param(7, $CFc)
+], $KFc);
+var $LFc = class {
   constructor(f, g, h, j, k, l, m) {
     this.f = f;
     this.g = g;
@@ -46054,7 +46054,7 @@ var $KFc = class {
     return this.l;
   }
 };
-var $LFc = class {
+var $MFc = class {
   constructor(proxy) {
     this.value = Object.freeze({
       append(value) {
@@ -46108,21 +46108,21 @@ var DirectDebugAdapter = class extends $kTb {
     return Promise.resolve(void 0);
   }
 };
-var $MFc = class $MFc2 extends $JFc {
+var $NFc = class $NFc2 extends $KFc {
   constructor(extHostRpcService, workspaceService, extensionService, configurationService, editorTabs, variableResolver, commands, testing) {
     super(extHostRpcService, workspaceService, extensionService, configurationService, editorTabs, variableResolver, commands, testing);
   }
 };
-$MFc = __decorate([
+$NFc = __decorate([
   __param(0, $eZ),
-  __param(1, $WEc),
-  __param(2, $yFc),
-  __param(3, $ZEc),
-  __param(4, $_Ec),
-  __param(5, $GFc),
+  __param(1, $XEc),
+  __param(2, $zFc),
+  __param(3, $1Ec),
+  __param(4, $aFc),
+  __param(5, $HFc),
   __param(6, $AZ),
-  __param(7, $BFc)
-], $MFc);
+  __param(7, $CFc)
+], $NFc);
 
 // out-build/vs/workbench/services/search/common/searchExtConversionTypes.js
 function isTextSearchMatch(object) {
@@ -46142,7 +46142,7 @@ function newToOldFileProviderOptions(options2) {
     // TODO: make sure that we actually use a cancellation token here.
   }));
 }
-var $ZFc = class {
+var $1Fc = class {
   constructor(a) {
     this.a = a;
   }
@@ -46164,20 +46164,20 @@ function newToOldTextProviderOptions(options2) {
     useParentIgnoreFiles: folderOption.useIgnoreFiles.parent,
     followSymlinks: folderOption.followSymlinks,
     maxResults: options2.maxResults,
-    previewOptions: $1Fc(options2.previewOptions),
+    previewOptions: $2Fc(options2.previewOptions),
     maxFileSize: options2.maxFileSize,
     encoding: folderOption.encoding,
     afterContext: options2.surroundingContext,
     beforeContext: options2.surroundingContext
   }));
 }
-function $1Fc(options2) {
+function $2Fc(options2) {
   return {
     matchLines: options2?.matchLines ?? $SQ.matchLines,
     charsPerLine: options2?.charsPerLine ?? $SQ.charsPerLine
   };
 }
-function $2Fc(result) {
+function $3Fc(result) {
   if (isTextSearchMatch(result)) {
     const ranges = $4b(result.ranges).map((r, i) => {
       const previewArr = $4b(result.preview.matches);
@@ -46189,7 +46189,7 @@ function $2Fc(result) {
     return new $oQ(result.uri, result.text, result.lineNumber);
   }
 }
-var $3Fc = class {
+var $4Fc = class {
   constructor(a) {
     this.a = a;
   }
@@ -46198,7 +46198,7 @@ var $3Fc = class {
       if (!validateProviderResult(oldResult2)) {
         return;
       }
-      progress.report($2Fc(oldResult2));
+      progress.report($3Fc(oldResult2));
     };
     const getResult = async () => {
       return $Lb(await Promise.all(newToOldTextProviderOptions(options2).map((o) => this.a.provideTextSearchResults(query, o, { report: (e) => progressShim(e) }, token)))).reduce((prev, cur) => ({ limitHit: prev.limitHit || cur.limitHit }), { limitHit: false });
@@ -46213,7 +46213,7 @@ var $3Fc = class {
   }
 };
 function validateProviderResult(result) {
-  if ($4Fc(result)) {
+  if ($5Fc(result)) {
     if (Array.isArray(result.ranges)) {
       if (!Array.isArray(result.preview.matches)) {
         console.warn("INVALID - A text search provider match's`ranges` and`matches` properties must have the same type.");
@@ -46232,12 +46232,12 @@ function validateProviderResult(result) {
   }
   return true;
 }
-function $4Fc(data2) {
+function $5Fc(data2) {
   return !!data2.preview;
 }
 
 // out-build/vs/workbench/services/search/common/folderQuerySearchTree.js
-var $5Fc = class extends $ql {
+var $6Fc = class extends $ql {
   constructor(folderQueries, getFolderQueryInfo, ignorePathCasing2 = () => false) {
     const uriIterator = new $pl(ignorePathCasing2, () => false);
     super(uriIterator);
@@ -46337,7 +46337,7 @@ var FileSearchEngine = class {
   async q(fqs, onResult) {
     const cancellation = new $Dd();
     const folderOptions = fqs.map((fq) => this.r(fq));
-    const session = this.o instanceof $ZFc ? this.p?.tokenSource.token : this.p?.obj;
+    const session = this.o instanceof $1Fc ? this.p?.tokenSource.token : this.p?.obj;
     const options2 = {
       folderOptions,
       maxResults: this.l.maxResults ?? $uQ,
@@ -46348,7 +46348,7 @@ var FileSearchEngine = class {
       const noSiblingsClauses = !queryTester.hasSiblingExcludeClauses();
       return { queryTester, noSiblingsClauses, folder: fq.folder, tree: this.s() };
     };
-    const folderMappings = new $5Fc(fqs, getFolderQueryInfo);
+    const folderMappings = new $6Fc(fqs, getFolderQueryInfo);
     let providerSW;
     try {
       this.j.add(cancellation);
@@ -46495,7 +46495,7 @@ var SessionLifecycle = class {
     this.a = void 0;
   }
 };
-var $6Fc = class _$6Fc {
+var $7Fc = class _$7Fc {
   constructor() {
     this.b = /* @__PURE__ */ new Map();
   }
@@ -46510,7 +46510,7 @@ var $6Fc = class _$6Fc {
       resultCount += batch.length;
       onBatch(batch.map((m) => this.d(m)));
     };
-    return this.f(engine, _$6Fc.a, onInternalResult, token).then((result) => {
+    return this.f(engine, _$7Fc.a, onInternalResult, token).then((result) => {
       return {
         limitHit: result.limitHit,
         stats: result.stats ? {
@@ -46578,7 +46578,7 @@ var $6Fc = class _$6Fc {
 };
 
 // out-build/vs/workbench/services/search/common/textSearchManager.js
-var $7Fc = class {
+var $8Fc = class {
   constructor(f, g, h) {
     this.f = f;
     this.g = g;
@@ -46594,7 +46594,7 @@ var $7Fc = class {
     const folderQueries = this.j.folderQueries || [];
     const tokenSource = new $Dd(token);
     return new Promise((resolve, reject) => {
-      this.b = new $8Fc(onProgress);
+      this.b = new $9Fc(onProgress);
       let isCanceled = false;
       const onResult = (result, folderIdx) => {
         if (isCanceled) {
@@ -46653,7 +46653,7 @@ var $7Fc = class {
     return new $nQ(result.uri, result.ranges.slice(0, size), result.previewText);
   }
   async n(folderQueries, onResult, token) {
-    const folderMappings = new $5Fc(folderQueries, (fq, i) => {
+    const folderMappings = new $6Fc(folderQueries, (fq, i) => {
       const queryTester = new $OQ(this.j, fq);
       return { queryTester, folder: fq.folder, folderIdx: i };
     }, () => true);
@@ -46741,12 +46741,12 @@ function patternInfoToQuery(patternInfo) {
     pattern: patternInfo.pattern
   };
 }
-var $8Fc = class {
+var $9Fc = class {
   constructor(g) {
     this.g = g;
     this.c = -1;
     this.f = null;
-    this.b = new $9Fc(512, (items) => this.j(items));
+    this.b = new $0Fc(512, (items) => this.j(items));
   }
   add(data2, folderIdx) {
     if (this.f && (this.c !== folderIdx || !$Ih(this.d, data2.uri))) {
@@ -46800,7 +46800,7 @@ function extensionResultToFrontendResult(data2) {
     };
   }
 }
-var $9Fc = class _$9Fc {
+var $0Fc = class _$0Fc {
   static {
     this.b = 4e3;
   }
@@ -46837,14 +46837,14 @@ var $9Fc = class _$9Fc {
     this.n();
   }
   n() {
-    if (this.d < _$9Fc.c) {
+    if (this.d < _$0Fc.c) {
       this.flush();
     } else if (this.g >= this.j) {
       this.flush();
     } else if (!this.h) {
       this.h = setTimeout(() => {
         this.flush();
-      }, _$9Fc.b);
+      }, _$0Fc.b);
     }
   }
   flush() {
@@ -46862,8 +46862,8 @@ var $9Fc = class _$9Fc {
 };
 
 // out-build/vs/workbench/api/common/extHostSearch.js
-var $0Fc = $kl("IExtHostSearch");
-var $$Fc = class $$Fc2 {
+var $$Fc = $kl("IExtHostSearch");
+var $_Fc = class $_Fc2 {
   constructor(o, q, s) {
     this.o = o;
     this.q = q;
@@ -46876,7 +46876,7 @@ var $$Fc = class $$Fc2 {
     this.j = /* @__PURE__ */ new Set();
     this.k = /* @__PURE__ */ new Map();
     this.l = /* @__PURE__ */ new Set();
-    this.n = new $6Fc();
+    this.n = new $7Fc();
   }
   t(scheme) {
     return this.q.transformOutgoingScheme(scheme);
@@ -46887,7 +46887,7 @@ var $$Fc = class $$Fc2 {
     }
     this.h.add(scheme);
     const handle = this.e++;
-    this.g.set(handle, new $3Fc(provider));
+    this.g.set(handle, new $4Fc(provider));
     this.c.$registerTextSearchProvider(handle, this.t(scheme));
     return $qd(() => {
       this.h.delete(scheme);
@@ -46929,7 +46929,7 @@ var $$Fc = class $$Fc2 {
     }
     this.l.add(scheme);
     const handle = this.e++;
-    this.k.set(handle, new $ZFc(provider));
+    this.k.set(handle, new $1Fc(provider));
     this.c.$registerFileSearchProvider(handle, this.t(scheme));
     return $qd(() => {
       this.l.delete(scheme);
@@ -46952,7 +46952,7 @@ var $$Fc = class $$Fc2 {
     });
   }
   $provideFileSearchResults(handle, session, rawQuery, token) {
-    const query = $_Fc(rawQuery);
+    const query = $aGc(rawQuery);
     const provider = this.k.get(handle);
     if (provider) {
       return this.n.fileSearch(query, provider, (batch) => {
@@ -46974,7 +46974,7 @@ var $$Fc = class $$Fc2 {
     if (!provider || !provider.provideTextSearchResults) {
       throw new Error(`Unknown Text Search Provider ${handle}`);
     }
-    const query = $_Fc(rawQuery);
+    const query = $aGc(rawQuery);
     const engine = this.v(query, provider);
     return engine.search((progress) => this.c.$handleTextMatch(handle, session, progress), token);
   }
@@ -46983,7 +46983,7 @@ var $$Fc = class $$Fc2 {
     if (!provider || !provider.provideAITextSearchResults) {
       throw new Error(`Unknown AI Text Search Provider ${handle}`);
     }
-    const query = $_Fc(rawQuery);
+    const query = $aGc(rawQuery);
     const engine = this.w(query, provider);
     return engine.search((progress) => this.c.$handleTextMatch(handle, session, progress), token);
   }
@@ -46997,24 +46997,24 @@ var $$Fc = class $$Fc2 {
     return provider.name ?? "AI";
   }
   v(query, provider) {
-    return new $7Fc({ query, provider }, {
+    return new $8Fc({ query, provider }, {
       readdir: (resource) => Promise.resolve([]),
       toCanonicalName: (encoding) => encoding
     }, "textSearchProvider");
   }
   w(query, provider) {
-    return new $7Fc({ query, provider }, {
+    return new $8Fc({ query, provider }, {
       readdir: (resource) => Promise.resolve([]),
       toCanonicalName: (encoding) => encoding
     }, "aiTextSearchProvider");
   }
 };
-$$Fc = __decorate([
+$_Fc = __decorate([
   __param(0, $eZ),
-  __param(1, $TEc),
+  __param(1, $UEc),
   __param(2, $5n)
-], $$Fc);
-function $_Fc(rawQuery) {
+], $_Fc);
+function $aGc(rawQuery) {
   return {
     ...rawQuery,
     // TODO@rob ???
@@ -47029,10 +47029,10 @@ function reviveFolderQuery(rawFolderQuery) {
 }
 
 // out-build/vs/workbench/api/common/extHostWindow.js
-var $MGc_1;
-var $MGc = class $MGc2 {
+var $NGc_1;
+var $NGc = class $NGc2 {
   static {
-    $MGc_1 = this;
+    $NGc_1 = this;
   }
   static {
     this.a = {
@@ -47054,7 +47054,7 @@ var $MGc = class $MGc2 {
   constructor(initData, extHostRpc) {
     this.c = new $0e();
     this.onDidChangeWindowState = this.c.event;
-    this.f = $MGc_1.a;
+    this.f = $NGc_1.a;
     if (initData.handle) {
       this.d = $dj(initData.handle).buffer;
     }
@@ -47108,14 +47108,14 @@ var $MGc = class $MGc2 {
     return URI.from(result);
   }
 };
-$MGc = $MGc_1 = __decorate([
+$NGc = $NGc_1 = __decorate([
   __param(0, $uZ),
   __param(1, $eZ)
-], $MGc);
-var $NGc = $kl("IExtHostWindow");
+], $NGc);
+var $OGc = $kl("IExtHostWindow");
 
 // out-build/vs/workbench/api/common/extHostLoggerService.js
-var $PGc = class $PGc2 extends $eo {
+var $QGc = class $QGc2 extends $eo {
   constructor(rpc, initData) {
     super(initData.logLevel, initData.logsLocation, initData.loggers.map((logger) => $Wu(logger)));
     this.c = rpc.getProxy($oW.MainThreadLogger);
@@ -47135,10 +47135,10 @@ var $PGc = class $PGc2 extends $eo {
     return new Logger(this.c, resource, logLevel, options2);
   }
 };
-$PGc = __decorate([
+$QGc = __decorate([
   __param(0, $eZ),
   __param(1, $uZ)
-], $PGc);
+], $QGc);
 var Logger = class extends $_n {
   constructor(s, t, logLevel, loggerOptions) {
     super(loggerOptions?.logLevel === "always");
@@ -47169,8 +47169,8 @@ var Logger = class extends $_n {
 };
 
 // out-build/vs/workbench/api/common/extHostTerminalShellIntegration.js
-var $CGc = $kl("IExtHostTerminalShellIntegration");
-var $DGc = class $DGc2 extends $sd {
+var $DGc = $kl("IExtHostTerminalShellIntegration");
+var $EGc = class $EGc2 extends $sd {
   constructor(extHostRpc, h) {
     super();
     this.h = h;
@@ -47197,7 +47197,7 @@ var $DGc = class $DGc2 extends $sd {
     const apiTerminal = terminal.value;
     let shellIntegration = this.b.get(instanceId);
     if (!shellIntegration) {
-      shellIntegration = new $EGc(terminal.value, this.f);
+      shellIntegration = new $FGc(terminal.value, this.f);
       this.b.set(instanceId, shellIntegration);
       shellIntegration.store.add(terminal.onWillDispose(() => this.b.get(instanceId)?.dispose()));
       shellIntegration.store.add(shellIntegration.onDidRequestShellExecution((commandLine) => this.a.$executeCommand(instanceId, commandLine)));
@@ -47243,11 +47243,11 @@ var $DGc = class $DGc2 extends $sd {
     this.b.delete(instanceId);
   }
 };
-$DGc = __decorate([
+$EGc = __decorate([
   __param(0, $eZ),
-  __param(1, $lFc)
-], $DGc);
-var $EGc = class extends $sd {
+  __param(1, $mFc)
+], $EGc);
+var $FGc = class extends $sd {
   get currentExecution() {
     return this.f;
   }
@@ -47834,8 +47834,8 @@ var McpConnectionState;
 })(McpConnectionState || (McpConnectionState = {}));
 
 // out-build/vs/workbench/api/common/extHostMcp.js
-var $eGc = $kl("IExtHostMpcService");
-var $fGc = class $fGc2 extends $sd {
+var $fGc = $kl("IExtHostMpcService");
+var $gGc = class $gGc2 extends $sd {
   constructor(extHostRpc) {
     super();
     this.b = /* @__PURE__ */ new Set();
@@ -47927,9 +47927,9 @@ var $fGc = class $fGc2 extends $sd {
     return store;
   }
 };
-$fGc = __decorate([
+$gGc = __decorate([
   __param(0, $eZ)
-], $fGc);
+], $gGc);
 var McpSSEHandle = class extends $sd {
   constructor(eventSourceCtor, c, launch, f) {
     super();
@@ -48016,20 +48016,20 @@ var McpSSEHandle = class extends $sd {
 
 // out-build/vs/workbench/api/common/extHost.common.services.js
 $ND(
+  $uFc,
   $tFc,
-  $sFc,
   1
   /* InstantiationType.Delayed */
 );
 $ND(
   $6n,
-  $PGc,
+  $QGc,
   1
   /* InstantiationType.Delayed */
 );
 $ND(
-  $wEc,
   $xEc,
+  $yEc,
   1
   /* InstantiationType.Delayed */
 );
@@ -48040,44 +48040,44 @@ $ND(
   /* InstantiationType.Eager */
 );
 $ND(
-  $GEc,
   $HEc,
+  $IEc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
-  $JEc,
   $KEc,
+  $LEc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
-  $ZEc,
-  $XEc,
-  0
-  /* InstantiationType.Eager */
-);
-$ND(
-  $2Ec,
   $1Ec,
+  $YEc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
-  $BFc,
+  $3Ec,
+  $2Ec,
+  0
+  /* InstantiationType.Eager */
+);
+$ND(
   $CFc,
+  $DFc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
-  $IFc,
-  $MFc,
-  0
-  /* InstantiationType.Eager */
-);
-$ND(
-  $OFc,
+  $JFc,
   $NFc,
+  0
+  /* InstantiationType.Eager */
+);
+$ND(
+  $PFc,
+  $OFc,
   0
   /* InstantiationType.Eager */
 );
@@ -48088,50 +48088,50 @@ $ND(
   /* InstantiationType.Eager */
 );
 $ND(
-  $uFc,
   $vFc,
+  $wFc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
+  $BEc,
   $AEc,
-  $zEc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
+  $pGc,
   $oGc,
-  $nGc,
   1
   /* InstantiationType.Delayed */
 );
 $ND(
-  $0Fc,
   $$Fc,
+  $_Fc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
+  $jFc,
   $iFc,
-  $hFc,
-  0
-  /* InstantiationType.Eager */
-);
-$ND(
-  $BGc,
-  $AGc,
-  0
-  /* InstantiationType.Eager */
-);
-$ND(
-  $lFc,
-  $oFc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
   $CGc,
+  $BGc,
+  0
+  /* InstantiationType.Eager */
+);
+$ND(
+  $mFc,
+  $pFc,
+  0
+  /* InstantiationType.Eager */
+);
+$ND(
   $DGc,
+  $EGc,
   0
   /* InstantiationType.Eager */
 );
@@ -48142,38 +48142,38 @@ $ND(
   /* InstantiationType.Eager */
 );
 $ND(
+  $OGc,
   $NGc,
-  $MGc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
+  $XEc,
   $WEc,
-  $VEc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
+  $rFc,
   $qFc,
-  $pFc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
-  $_Ec,
   $aFc,
+  $bFc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
-  $GFc,
   $HFc,
+  $IFc,
   0
   /* InstantiationType.Eager */
 );
 $ND(
-  $eGc,
   $fGc,
+  $gGc,
   0
   /* InstantiationType.Eager */
 );
@@ -48215,17 +48215,17 @@ var $RD = class extends $sd {
 };
 
 // out-build/vs/workbench/api/common/extHostLogService.js
-var $RGc = class $RGc2 extends $RD {
+var $SGc = class $SGc2 extends $RD {
   constructor(isWorker, loggerService, initData) {
     const id2 = initData.remote.isRemote ? "remoteexthost" : isWorker ? "workerexthost" : "exthost";
     const name2 = initData.remote.isRemote ? localize(2868, null) : isWorker ? localize(2869, null) : localize(2870, null);
     super(loggerService.createLogger(id2, { name: name2 }));
   }
 };
-$RGc = __decorate([
+$SGc = __decorate([
   __param(1, $6n),
   __param(2, $uZ)
-], $RGc);
+], $SGc);
 
 // out-build/vs/editor/common/core/textModelDefaults.js
 var $dE = {
@@ -48268,7 +48268,7 @@ if (typeof vscodeGlobal2 !== "undefined" && typeof vscodeGlobal2.context !== "un
     });
   }
 } else {
-  product = { "nameShort": "Code - OSS", "nameLong": "Code - OSS", "applicationName": "code-oss", "dataFolderName": ".vscode-oss", "win32MutexName": "vscodeoss", "licenseName": "MIT", "licenseUrl": "https://github.com/microsoft/vscode/blob/main/LICENSE.txt", "serverLicenseUrl": "https://github.com/microsoft/vscode/blob/main/LICENSE.txt", "serverGreeting": [], "serverLicense": [], "serverLicensePrompt": "", "serverApplicationName": "code-server-oss", "serverDataFolderName": ".vscode-server-oss", "tunnelApplicationName": "code-tunnel-oss", "win32DirName": "Microsoft Code OSS", "win32NameVersion": "Microsoft Code OSS", "win32RegValueName": "CodeOSS", "win32x64AppId": "{{D77B7E06-80BA-4137-BCF4-654B95CCEBC5}", "win32arm64AppId": "{{D1ACE434-89C5-48D1-88D3-E2991DF85475}", "win32x64UserAppId": "{{CC6B787D-37A0-49E8-AE24-8559A032BE0C}", "win32arm64UserAppId": "{{3AEBF0C8-F733-4AD4-BADE-FDB816D53D7B}", "win32AppUserModelId": "Microsoft.CodeOSS", "win32ShellNameShort": "C&ode - OSS", "win32TunnelServiceMutex": "vscodeoss-tunnelservice", "win32TunnelMutex": "vscodeoss-tunnel", "darwinBundleIdentifier": "com.visualstudio.code.oss", "darwinProfileUUID": "47827DD9-4734-49A0-AF80-7E19B11495CC", "darwinProfilePayloadUUID": "CF808BE7-53F3-46C6-A7E2-7EDB98A5E959", "linuxIconName": "code-oss", "licenseFileName": "LICENSE.txt", "reportIssueUrl": "https://github.com/microsoft/vscode/issues/new", "nodejsRepository": "https://nodejs.org", "urlProtocol": "code-oss", "webviewContentExternalBaseUrlTemplate": "https://{{uuid}}.vscode-cdn.net/insider/ef65ac1ba57f57f2a3961bfe94aa20481caca4c6/out/vs/workbench/contrib/webview/browser/pre/", "builtInExtensions": [{ "name": "ms-vscode.js-debug-companion", "version": "1.1.3", "sha256": "7380a890787452f14b2db7835dfa94de538caf358ebc263f9d46dd68ac52de93", "repo": "https://github.com/microsoft/vscode-js-debug-companion", "metadata": { "id": "99cb0b7f-7354-4278-b8da-6cc79972169d", "publisherId": { "publisherId": "5f5636e7-69ed-4afe-b5d6-8d231fb3d3ee", "publisherName": "ms-vscode", "displayName": "Microsoft", "flags": "verified" }, "publisherDisplayName": "Microsoft" } }, { "name": "ms-vscode.js-debug", "version": "1.97.1", "sha256": "977dd854805547702e312e176f68a1b142fa123f228258f47f0964560ad32496", "repo": "https://github.com/microsoft/vscode-js-debug", "metadata": { "id": "25629058-ddac-4e17-abba-74678e126c5d", "publisherId": { "publisherId": "5f5636e7-69ed-4afe-b5d6-8d231fb3d3ee", "publisherName": "ms-vscode", "displayName": "Microsoft", "flags": "verified" }, "publisherDisplayName": "Microsoft" } }, { "name": "ms-vscode.vscode-js-profile-table", "version": "1.0.10", "sha256": "7361748ddf9fd09d8a2ed1f2a2d7376a2cf9aae708692820b799708385c38e08", "repo": "https://github.com/microsoft/vscode-js-profile-visualizer", "metadata": { "id": "7e52b41b-71ad-457b-ab7e-0620f1fc4feb", "publisherId": { "publisherId": "5f5636e7-69ed-4afe-b5d6-8d231fb3d3ee", "publisherName": "ms-vscode", "displayName": "Microsoft", "flags": "verified" }, "publisherDisplayName": "Microsoft" } }], "version": "1.99.2", "commit": "4949701c880d4bdb949e3c0e6b400288da7f474b", "date": "2025-05-08T01:36:31.564Z" };
+  product = { "nameShort": "Code - OSS", "nameLong": "Code - OSS", "applicationName": "code-oss", "dataFolderName": ".vscode-oss", "win32MutexName": "vscodeoss", "licenseName": "MIT", "licenseUrl": "https://github.com/microsoft/vscode/blob/main/LICENSE.txt", "serverLicenseUrl": "https://github.com/microsoft/vscode/blob/main/LICENSE.txt", "serverGreeting": [], "serverLicense": [], "serverLicensePrompt": "", "serverApplicationName": "code-server-oss", "serverDataFolderName": ".vscode-server-oss", "tunnelApplicationName": "code-tunnel-oss", "win32DirName": "Microsoft Code OSS", "win32NameVersion": "Microsoft Code OSS", "win32RegValueName": "CodeOSS", "win32x64AppId": "{{D77B7E06-80BA-4137-BCF4-654B95CCEBC5}", "win32arm64AppId": "{{D1ACE434-89C5-48D1-88D3-E2991DF85475}", "win32x64UserAppId": "{{CC6B787D-37A0-49E8-AE24-8559A032BE0C}", "win32arm64UserAppId": "{{3AEBF0C8-F733-4AD4-BADE-FDB816D53D7B}", "win32AppUserModelId": "Microsoft.CodeOSS", "win32ShellNameShort": "C&ode - OSS", "win32TunnelServiceMutex": "vscodeoss-tunnelservice", "win32TunnelMutex": "vscodeoss-tunnel", "darwinBundleIdentifier": "com.visualstudio.code.oss", "darwinProfileUUID": "47827DD9-4734-49A0-AF80-7E19B11495CC", "darwinProfilePayloadUUID": "CF808BE7-53F3-46C6-A7E2-7EDB98A5E959", "linuxIconName": "code-oss", "licenseFileName": "LICENSE.txt", "reportIssueUrl": "https://github.com/microsoft/vscode/issues/new", "nodejsRepository": "https://nodejs.org", "urlProtocol": "code-oss", "webviewContentExternalBaseUrlTemplate": "https://{{uuid}}.vscode-cdn.net/insider/ef65ac1ba57f57f2a3961bfe94aa20481caca4c6/out/vs/workbench/contrib/webview/browser/pre/", "builtInExtensions": [{ "name": "ms-vscode.js-debug-companion", "version": "1.1.3", "sha256": "7380a890787452f14b2db7835dfa94de538caf358ebc263f9d46dd68ac52de93", "repo": "https://github.com/microsoft/vscode-js-debug-companion", "metadata": { "id": "99cb0b7f-7354-4278-b8da-6cc79972169d", "publisherId": { "publisherId": "5f5636e7-69ed-4afe-b5d6-8d231fb3d3ee", "publisherName": "ms-vscode", "displayName": "Microsoft", "flags": "verified" }, "publisherDisplayName": "Microsoft" } }, { "name": "ms-vscode.js-debug", "version": "1.97.1", "sha256": "977dd854805547702e312e176f68a1b142fa123f228258f47f0964560ad32496", "repo": "https://github.com/microsoft/vscode-js-debug", "metadata": { "id": "25629058-ddac-4e17-abba-74678e126c5d", "publisherId": { "publisherId": "5f5636e7-69ed-4afe-b5d6-8d231fb3d3ee", "publisherName": "ms-vscode", "displayName": "Microsoft", "flags": "verified" }, "publisherDisplayName": "Microsoft" } }, { "name": "ms-vscode.vscode-js-profile-table", "version": "1.0.10", "sha256": "7361748ddf9fd09d8a2ed1f2a2d7376a2cf9aae708692820b799708385c38e08", "repo": "https://github.com/microsoft/vscode-js-profile-visualizer", "metadata": { "id": "7e52b41b-71ad-457b-ab7e-0620f1fc4feb", "publisherId": { "publisherId": "5f5636e7-69ed-4afe-b5d6-8d231fb3d3ee", "publisherName": "ms-vscode", "displayName": "Microsoft", "flags": "verified" }, "publisherDisplayName": "Microsoft" } }], "version": "1.99.2", "commit": "cc28d2462a37d6d2a43eb577fea3f89b9d1e90d3", "date": "2025-05-14T02:19:57.267Z" };
   if (Object.keys(product).length === 0) {
     Object.assign(product, {
       version: "1.95.0-dev",
@@ -51838,7 +51838,7 @@ var IDebugVisualization;
 })(IDebugVisualization || (IDebugVisualization = {}));
 
 // out-build/vs/workbench/api/common/extHostAiRelatedInformation.js
-var $vEc = class {
+var $wEc = class {
   constructor(mainContext) {
     this.a = /* @__PURE__ */ new Map();
     this.b = 0;
@@ -52261,7 +52261,7 @@ var newCommands = [
     };
   })], $DZ.Void)
 ];
-var $FEc = class {
+var $GEc = class {
   static register(commands) {
     newCommands.forEach(commands.registerApiCommand, commands);
     this.a(commands);
@@ -52294,7 +52294,7 @@ function mapLocationOrLocationLink(values) {
 }
 
 // out-build/vs/workbench/api/common/extHostBulkEdits.js
-var $IEc = class $IEc2 {
+var $JEc = class $JEc2 {
   constructor(extHostRpc, extHostDocumentsAndEditors) {
     this.a = extHostRpc.getProxy($oW.MainThreadBulkEdits);
     this.b = {
@@ -52307,9 +52307,9 @@ var $IEc = class $IEc2 {
     return this.a.$tryApplyWorkspaceEdit(dto, void 0, metadata?.isRefactoring ?? false);
   }
 };
-$IEc = __decorate([
+$JEc = __decorate([
   __param(0, $eZ)
-], $IEc);
+], $JEc);
 
 // out-build/vs/workbench/contrib/chat/common/chatActions.js
 function $Ryb(obj) {
@@ -52571,7 +52571,7 @@ var ChatAgentResponseStream = class {
     return this.g;
   }
 };
-var $MEc = class _$MEc extends $sd {
+var $NEc = class _$NEc extends $sd {
   static {
     this.b = 0;
   }
@@ -52611,21 +52611,21 @@ var $MEc = class _$MEc extends $sd {
     this.g.$transferActiveChatSession(newWorkspace);
   }
   createChatAgent(extension, id2, handler) {
-    const handle = _$MEc.b++;
+    const handle = _$NEc.b++;
     const agent = new ExtHostChatAgent(extension, id2, this.g, handle, handler);
     this.c.set(handle, agent);
     this.g.$registerAgent(handle, extension.identifier, id2, {}, void 0);
     return agent.apiAgent;
   }
   createDynamicChatAgent(extension, id2, dynamicProps, handler) {
-    const handle = _$MEc.b++;
+    const handle = _$NEc.b++;
     const agent = new ExtHostChatAgent(extension, id2, this.g, handle, handler);
     this.c.set(handle, agent);
     this.g.$registerAgent(handle, extension.identifier, id2, { isSticky: true }, dynamicProps);
     return agent.apiAgent;
   }
   registerChatParticipantDetectionProvider(extension, provider) {
-    const handle = _$MEc.j++;
+    const handle = _$NEc.j++;
     this.m.set(handle, new ExtHostParticipantDetector(extension, provider));
     this.g.$registerChatParticipantDetectionProvider(handle);
     return $qd(() => {
@@ -52634,7 +52634,7 @@ var $MEc = class _$MEc extends $sd {
     });
   }
   registerRelatedFilesProvider(extension, provider, metadata) {
-    const handle = _$MEc.n++;
+    const handle = _$NEc.n++;
     this.s.set(handle, new ExtHostRelatedFilesProvider(extension, provider));
     this.g.$registerRelatedFilesProvider(handle, metadata);
     return $qd(() => {
@@ -53097,7 +53097,7 @@ var ExtHostChatAgent = class {
 };
 
 // out-build/vs/workbench/api/common/extHostChatStatus.js
-var $NEc = class {
+var $OEc = class {
   constructor(mainContext) {
     this.b = /* @__PURE__ */ new Map();
     this.a = mainContext.getProxy($oW.MainThreadChatStatus);
@@ -53170,7 +53170,7 @@ function asChatItemIdentifier(extension, id2) {
 }
 
 // out-build/vs/workbench/api/common/extHostClipboard.js
-var $OEc = class {
+var $PEc = class {
   constructor(mainContext) {
     const proxy = mainContext.getProxy($oW.MainThreadClipboard);
     this.value = Object.freeze({
@@ -53218,7 +53218,7 @@ function encodeAuthority(authority) {
 }
 
 // out-build/vs/workbench/api/common/extHostCodeInsets.js
-var $QEc = class {
+var $REc = class {
   constructor(d, e, f) {
     this.d = d;
     this.e = e;
@@ -53321,7 +53321,7 @@ var $QEc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostCodeMapper.js
-var $REc = class _$REc {
+var $SEc = class _$SEc {
   static {
     this.a = 0;
   }
@@ -53365,7 +53365,7 @@ var $REc = class _$REc {
     return result ?? null;
   }
   registerMappedEditsProvider(extension, provider) {
-    const handle = _$REc.a++;
+    const handle = _$SEc.a++;
     this.b.$registerCodeMapperProvider(handle, extension.displayName ?? extension.name);
     this.c.set(handle, provider);
     return {
@@ -53452,7 +53452,7 @@ function $Tu(delay, reducer, initialValueProvider) {
 }
 
 // out-build/vs/workbench/api/common/extHostComments.js
-function $SEc(mainContext, commands, documents) {
+function $TEc(mainContext, commands, documents) {
   const proxy = mainContext.getProxy($oW.MainThreadComments);
   class ExtHostCommentsImpl {
     static {
@@ -54964,7 +54964,7 @@ function $$Sb(jsonMessage, buffers) {
 }
 
 // out-build/vs/workbench/api/common/extHostWebview.js
-var $5Ec = class {
+var $6Ec = class {
   #handle;
   #proxy;
   #deprecationService;
@@ -54991,7 +54991,7 @@ var $5Ec = class {
     this.#remoteInfo = remoteInfo;
     this.#workspace = workspace;
     this.#extension = extension;
-    this.#serializeBuffersForPostMessage = $6Ec(extension);
+    this.#serializeBuffersForPostMessage = $7Ec(extension);
     this.#shouldRewriteOldResourceUris = shouldTryRewritingOldResourceUris(extension);
     this.#deprecationService = deprecationService;
   }
@@ -55039,7 +55039,7 @@ var $5Ec = class {
   set options(newOptions) {
     this.a();
     if (!$yw(this.#options, newOptions)) {
-      this.#proxy.$setOptions(this.#handle, $9Ec(this.#extension, this.#workspace, newOptions));
+      this.#proxy.$setOptions(this.#handle, $0Ec(this.#extension, this.#workspace, newOptions));
     }
     this.#options = newOptions;
   }
@@ -55078,7 +55078,7 @@ var $5Ec = class {
     });
   }
 };
-function $6Ec(extension) {
+function $7Ec(extension) {
   try {
     const version = $HB($GB(extension.engines.vscode));
     return !!version && version.majorBase >= 1 && version.minorBase >= 57;
@@ -55097,7 +55097,7 @@ function shouldTryRewritingOldResourceUris(extension) {
     return false;
   }
 }
-var $7Ec = class extends $sd {
+var $8Ec = class extends $sd {
   constructor(mainContext, c, f, g, h) {
     super();
     this.c = c;
@@ -55125,7 +55125,7 @@ var $7Ec = class extends $sd {
     this.g.warn(`${extensionId} created a webview without a content security policy: https://aka.ms/vscode-webview-missing-csp`);
   }
   createNewWebview(handle, options2, extension) {
-    const webview = new $5Ec(handle, this.a, reviveOptions(options2), this.c, this.f, extension, this.h);
+    const webview = new $6Ec(handle, this.a, reviveOptions(options2), this.c, this.f, extension, this.h);
     this.b.set(handle, webview);
     const sub = webview._onDidDispose(() => {
       sub.dispose();
@@ -55140,10 +55140,10 @@ var $7Ec = class extends $sd {
     return this.b.get(handle);
   }
 };
-function $8Ec(extension) {
+function $9Ec(extension) {
   return { id: extension.identifier, location: extension.extensionLocation };
 }
-function $9Ec(extension, workspace, options2) {
+function $0Ec(extension, workspace, options2) {
   return {
     enableCommandUris: options2.enableCommandUris,
     enableScripts: options2.enableScripts,
@@ -55169,7 +55169,7 @@ function getDefaultLocalResourceRoots(extension, workspace) {
 }
 
 // out-build/vs/workbench/api/common/cache.js
-var $uEc = class _$uEc {
+var $vEc = class _$vEc {
   static {
     this.a = false;
   }
@@ -55192,7 +55192,7 @@ var $uEc = class _$uEc {
     this.e();
   }
   e() {
-    if (!_$uEc.a) {
+    if (!_$vEc.a) {
       return;
     }
     console.log(`${this.d} cache size - ${this.b.size}`);
@@ -55205,7 +55205,7 @@ var CustomDocumentStoreEntry = class {
     this.document = document2;
     this.b = b;
     this.a = 1;
-    this.c = new $uEc("custom documents");
+    this.c = new $vEc("custom documents");
   }
   addEdit(item) {
     return this.c.add([item]);
@@ -55300,7 +55300,7 @@ var EditorProviderStore = class {
     return new $qW(() => this.a.delete(viewType));
   }
 };
-var $$Ec = class {
+var $_Ec = class {
   constructor(mainContext, d, f, g, h) {
     this.d = d;
     this.f = f;
@@ -55314,9 +55314,9 @@ var $$Ec = class {
     const disposables = new $rd();
     if (isCustomTextEditorProvider(provider)) {
       disposables.add(this.b.addTextProvider(viewType, extension, provider));
-      this.a.$registerTextEditorProvider($8Ec(extension), viewType, options2.webviewOptions || {}, {
+      this.a.$registerTextEditorProvider($9Ec(extension), viewType, options2.webviewOptions || {}, {
         supportsMove: !!provider.moveCustomTextEditor
-      }, $6Ec(extension));
+      }, $7Ec(extension));
     } else {
       disposables.add(this.b.addCustomProvider(viewType, extension, provider));
       if (isCustomEditorProviderWithEditingCapability(provider)) {
@@ -55330,7 +55330,7 @@ var $$Ec = class {
           }
         }));
       }
-      this.a.$registerCustomEditorProvider($8Ec(extension), viewType, options2.webviewOptions || {}, !!options2.supportsMultipleEditorsPerDocument, $6Ec(extension));
+      this.a.$registerCustomEditorProvider($9Ec(extension), viewType, options2.webviewOptions || {}, !!options2.supportsMultipleEditorsPerDocument, $7Ec(extension));
     }
     return $qW.from(disposables, new $qW(() => {
       this.a.$unregisterEditorProvider(viewType);
@@ -55474,8 +55474,8 @@ function hashPath(resource) {
 }
 
 // out-build/vs/workbench/api/common/extHostDiagnostics.js
-var $CEc_1;
-var $BEc = class _$BEc {
+var $DEc_1;
+var $CEc = class _$CEc {
   #proxy;
   #onDidChangeDiagnostics;
   #data;
@@ -55520,7 +55520,7 @@ var $BEc = class _$BEc {
     } else if (Array.isArray(first)) {
       toSync = [];
       let lastUri;
-      first = [...first].sort(_$BEc.k);
+      first = [...first].sort(_$CEc.k);
       for (const tuple of first) {
         const [uri, diagnostics2] = tuple;
         if (!lastUri || uri.toString() !== lastUri.toString()) {
@@ -55636,9 +55636,9 @@ var $BEc = class _$BEc {
     }
   }
 };
-var $CEc = class $CEc2 {
+var $DEc = class $DEc2 {
   static {
-    $CEc_1 = this;
+    $DEc_1 = this;
   }
   static {
     this.c = 0;
@@ -55662,7 +55662,7 @@ var $CEc = class $CEc2 {
     this.l = l;
     this.g = /* @__PURE__ */ new Map();
     this.h = new $bf({ merge: (all) => all.flat(), delay: 50 });
-    this.onDidChangeDiagnostics = Event.map(this.h.event, $CEc_1._mapper);
+    this.onDidChangeDiagnostics = Event.map(this.h.event, $DEc_1._mapper);
     this.f = mainContext.getProxy($oW.MainThreadDiagnostics);
   }
   createDiagnosticCollection(extensionId, name2) {
@@ -55682,19 +55682,19 @@ var $CEc = class $CEc2 {
     }();
     let owner;
     if (!name2) {
-      name2 = "_generated_diagnostic_collection_name_#" + $CEc_1.c++;
+      name2 = "_generated_diagnostic_collection_name_#" + $DEc_1.c++;
       owner = name2;
     } else if (!_collections.has(name2)) {
       owner = name2;
     } else {
       this.j.warn(`DiagnosticCollection with name '${name2}' does already exist.`);
       do {
-        owner = name2 + $CEc_1.c++;
+        owner = name2 + $DEc_1.c++;
       } while (_collections.has(owner));
     }
-    const result = new class extends $BEc {
+    const result = new class extends $CEc {
       constructor() {
-        super(name2, owner, $CEc_1.e, $CEc_1.d, (uri) => _extHostDocumentsAndEditors.getDocument(uri)?.version, _fileSystemInfoService.extUri, loggingProxy, _onDidChangeDiagnostics);
+        super(name2, owner, $DEc_1.e, $DEc_1.d, (uri) => _extHostDocumentsAndEditors.getDocument(uri)?.version, _fileSystemInfoService.extUri, loggingProxy, _onDidChangeDiagnostics);
         _collections.set(owner, this);
       }
       dispose() {
@@ -55736,7 +55736,7 @@ var $CEc = class $CEc2 {
   $acceptMarkersChange(data2) {
     if (!this.n) {
       const name2 = "_generated_mirror";
-      const collection = new $BEc(
+      const collection = new $CEc(
         name2,
         name2,
         Number.MAX_SAFE_INTEGER,
@@ -55756,13 +55756,13 @@ var $CEc = class $CEc2 {
     }
   }
 };
-$CEc = $CEc_1 = __decorate([
+$DEc = $DEc_1 = __decorate([
   __param(1, $5n),
-  __param(2, $AEc)
-], $CEc);
+  __param(2, $BEc)
+], $DEc);
 
 // out-build/vs/workbench/api/common/extHostDialogs.js
-var $PFc = class {
+var $QFc = class {
   constructor(mainContext) {
     this.a = mainContext.getProxy($oW.MainThreadDialogs);
   }
@@ -55779,7 +55779,7 @@ var $PFc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostDocumentContentProviders.js
-var $QFc = class _$QFc {
+var $RFc = class _$RFc {
   static {
     this.a = 0;
   }
@@ -55793,7 +55793,7 @@ var $QFc = class _$QFc {
     if (Object.keys(Schemas).indexOf(scheme) >= 0) {
       throw new Error(`scheme '${scheme}' already registered`);
     }
-    const handle = _$QFc.a++;
+    const handle = _$RFc.a++;
     this.b.set(handle, provider);
     this.c.$registerTextContentProvider(handle, scheme);
     let subscription;
@@ -55850,7 +55850,7 @@ var $QFc = class _$QFc {
 };
 
 // out-build/vs/workbench/api/common/extHostDocumentSaveParticipant.js
-var $RFc = class {
+var $SFc = class {
   constructor(c, d, f, g = { timeout: 1500, errors: 3 }) {
     this.c = c;
     this.d = d;
@@ -55971,7 +55971,7 @@ var $RFc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostDocuments.js
-var $DEc = class {
+var $EEc = class {
   constructor(mainContext, documentsAndEditors) {
     this.a = new $0e();
     this.b = new $0e();
@@ -56128,7 +56128,7 @@ var $DEc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostEmbedding.js
-var $SFc = class {
+var $TFc = class {
   constructor(mainContext) {
     this.b = /* @__PURE__ */ new Map();
     this.c = new $0e();
@@ -56190,7 +56190,7 @@ var $SFc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostEmbeddingVector.js
-var $TFc = class {
+var $UFc = class {
   constructor(mainContext) {
     this.a = /* @__PURE__ */ new Map();
     this.b = 0;
@@ -56685,7 +56685,7 @@ var FsLinkProvider = class {
     return result;
   }
 };
-var $UFc = class _$UFc {
+var $VFc = class _$VFc {
   constructor(mainContext, i) {
     this.i = i;
     this.b = new FsLinkProvider();
@@ -56699,7 +56699,7 @@ var $UFc = class _$UFc {
     this.g?.dispose();
   }
   registerFileSystemProvider(extension, scheme, provider, options2 = {}) {
-    _$UFc.j(provider);
+    _$VFc.j(provider);
     if (this.d.has(scheme)) {
       throw new Error(`a provider for the scheme '${scheme}' is already registered`);
     }
@@ -56806,7 +56806,7 @@ var $UFc = class _$UFc {
     return { type, ctime, mtime, size, permissions };
   }
   $stat(handle, resource) {
-    return Promise.resolve(this.l(handle).stat(URI.revive(resource))).then((stat) => _$UFc.k(stat));
+    return Promise.resolve(this.l(handle).stat(URI.revive(resource))).then((stat) => _$VFc.k(stat));
   }
   $readdir(handle, resource) {
     return Promise.resolve(this.l(handle).readDirectory(URI.revive(resource)));
@@ -57124,7 +57124,7 @@ var LazyRevivedFileSystemEvents = class {
     this.session = this.d.session;
   }
 };
-var $VFc = class {
+var $WFc = class {
   constructor(j, k, l) {
     this.j = j;
     this.k = k;
@@ -57226,7 +57226,7 @@ var $VFc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostInteractive.js
-var $bGc = class {
+var $cGc = class {
   constructor(mainContext, a, b, c, _logService) {
     this.a = a;
     this.b = b;
@@ -57269,7 +57269,7 @@ var $bGc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostLabelService.js
-var $cGc = class {
+var $dGc = class {
   constructor(mainContext) {
     this.b = 0;
     this.a = mainContext.getProxy($oW.MainThreadLabelService);
@@ -57478,7 +57478,7 @@ var CodeLensAdapter = class {
     this.j = j;
     this.k = k;
     this.l = l;
-    this.d = new $uEc("CodeLens");
+    this.d = new $vEc("CodeLens");
     this.e = /* @__PURE__ */ new Map();
   }
   async provideCodeLenses(resource, token) {
@@ -57764,7 +57764,7 @@ var CodeActionAdapter = class _CodeActionAdapter {
     this.l = l;
     this.m = m;
     this.n = n;
-    this.e = new $uEc("CodeAction");
+    this.e = new $vEc("CodeAction");
     this.f = /* @__PURE__ */ new Map();
   }
   async provideCodeActions(resource, rangeOrSelection, context, token) {
@@ -57869,7 +57869,7 @@ var DocumentPasteEditProvider = class {
     this.h = h;
     this.j = j;
     this.k = k;
-    this.e = new $uEc("DocumentPasteEdit.edits");
+    this.e = new $vEc("DocumentPasteEdit.edits");
   }
   async prepareDocumentPaste(resource, ranges, dataTransferDto, token) {
     if (!this.h.prepareDocumentPaste) {
@@ -58006,7 +58006,7 @@ var NavigateTypeAdapter = class {
   constructor(e, f) {
     this.e = e;
     this.f = f;
-    this.d = new $uEc("WorkspaceSymbols");
+    this.d = new $vEc("WorkspaceSymbols");
   }
   async provideWorkspaceSymbols(search, token) {
     const value = await this.e.provideWorkspaceSymbols(search, token);
@@ -58311,7 +58311,7 @@ var CompletionsAdapter = class _CompletionsAdapter {
     this.h = h;
     this.j = j;
     this.k = k;
-    this.d = new $uEc("CompletionItem");
+    this.d = new $vEc("CompletionItem");
     this.e = /* @__PURE__ */ new Map();
   }
   async provideCompletionItems(resource, position, context, token) {
@@ -58877,7 +58877,7 @@ var SignatureHelpAdapter = class {
   constructor(e, f) {
     this.e = e;
     this.f = f;
-    this.d = new $uEc("SignatureHelp");
+    this.d = new $vEc("SignatureHelp");
   }
   async provideSignatureHelp(resource, position, context, token) {
     const doc = this.e.getDocument(resource);
@@ -58916,7 +58916,7 @@ var InlayHintsAdapter = class {
     this.h = h;
     this.j = j;
     this.k = k;
-    this.d = new $uEc("InlayHints");
+    this.d = new $vEc("InlayHints");
     this.e = /* @__PURE__ */ new Map();
   }
   async provideInlayHints(resource, ran, token) {
@@ -59019,7 +59019,7 @@ var LinkProviderAdapter = class _LinkProviderAdapter {
   constructor(e, f) {
     this.e = e;
     this.f = f;
-    this.d = new $uEc("DocumentLink");
+    this.d = new $vEc("DocumentLink");
   }
   async provideLinks(resource, token) {
     const doc = this.e.getDocument(resource);
@@ -59290,7 +59290,7 @@ var DocumentDropEditAdapter = class {
     this.g = g;
     this.h = h;
     this.j = j;
-    this.d = new $uEc("DocumentDropEdit");
+    this.d = new $vEc("DocumentDropEdit");
   }
   async provideDocumentOnDropEdits(requestId, uri, position, dataTransferDto, token) {
     const doc = this.f.getDocument(uri);
@@ -59333,7 +59333,7 @@ var AdapterData = class {
     this.extension = extension;
   }
 };
-var $EEc = class _$EEc {
+var $FEc = class _$FEc {
   static {
     this.d = 0;
   }
@@ -59358,7 +59358,7 @@ var $EEc = class _$EEc {
     });
   }
   q() {
-    return _$EEc.d++;
+    return _$FEc.d++;
   }
   async s(handle, ctor, callback, fallbackValue, tokenToRaceAgainst, doNotLog = false) {
     const data2 = this.f.get(handle);
@@ -59400,7 +59400,7 @@ var $EEc = class _$EEc {
   // --- outline
   registerDocumentSymbolProvider(extension, selector, provider, metadata) {
     const handle = this.t(new DocumentSymbolAdapter(this.h, provider), extension);
-    const displayName = metadata && metadata.label || _$EEc.u(extension);
+    const displayName = metadata && metadata.label || _$FEc.u(extension);
     this.e.$registerDocumentSymbolProvider(handle, this.o(selector, extension), displayName);
     return this.p(handle);
   }
@@ -59527,7 +59527,7 @@ var $EEc = class _$EEc {
       if (res) {
         return {
           ranges: res.ranges,
-          wordPattern: res.wordPattern ? _$EEc.y(res.wordPattern) : void 0
+          wordPattern: res.wordPattern ? _$FEc.y(res.wordPattern) : void 0
         };
       }
       return void 0;
@@ -59552,7 +59552,7 @@ var $EEc = class _$EEc {
         kind: x.kind.value,
         command: this.j.converter.toInternal(x.command, store)
       }))
-    }, _$EEc.u(extension), _$EEc.w(extension), Boolean(provider.resolveCodeAction));
+    }, _$FEc.u(extension), _$FEc.w(extension), Boolean(provider.resolveCodeAction));
     store.add(this.p(handle));
     return store;
   }
@@ -59739,7 +59739,7 @@ var $EEc = class _$EEc {
   registerInlayHintsProvider(extension, selector, provider) {
     const eventHandle = typeof provider.onDidChangeInlayHints === "function" ? this.q() : void 0;
     const handle = this.t(new InlayHintsAdapter(this.h, this.j.converter, provider, this.l, extension), extension);
-    this.e.$registerInlayHintsProvider(handle, this.o(selector, extension), typeof provider.resolveInlayHint === "function", eventHandle, _$EEc.u(extension));
+    this.e.$registerInlayHintsProvider(handle, this.o(selector, extension), typeof provider.resolveInlayHint === "function", eventHandle, _$FEc.u(extension));
     let result = this.p(handle);
     if (eventHandle !== void 0) {
       const subscription = provider.onDidChangeInlayHints((uri) => this.e.$emitInlayHintsEvent(eventHandle));
@@ -59897,22 +59897,22 @@ var $EEc = class _$EEc {
   }
   static z(indentationRule) {
     return {
-      decreaseIndentPattern: _$EEc.y(indentationRule.decreaseIndentPattern),
-      increaseIndentPattern: _$EEc.y(indentationRule.increaseIndentPattern),
-      indentNextLinePattern: indentationRule.indentNextLinePattern ? _$EEc.y(indentationRule.indentNextLinePattern) : void 0,
-      unIndentedLinePattern: indentationRule.unIndentedLinePattern ? _$EEc.y(indentationRule.unIndentedLinePattern) : void 0
+      decreaseIndentPattern: _$FEc.y(indentationRule.decreaseIndentPattern),
+      increaseIndentPattern: _$FEc.y(indentationRule.increaseIndentPattern),
+      indentNextLinePattern: indentationRule.indentNextLinePattern ? _$FEc.y(indentationRule.indentNextLinePattern) : void 0,
+      unIndentedLinePattern: indentationRule.unIndentedLinePattern ? _$FEc.y(indentationRule.unIndentedLinePattern) : void 0
     };
   }
   static B(onEnterRule) {
     return {
-      beforeText: _$EEc.y(onEnterRule.beforeText),
-      afterText: onEnterRule.afterText ? _$EEc.y(onEnterRule.afterText) : void 0,
-      previousLineText: onEnterRule.previousLineText ? _$EEc.y(onEnterRule.previousLineText) : void 0,
+      beforeText: _$FEc.y(onEnterRule.beforeText),
+      afterText: onEnterRule.afterText ? _$FEc.y(onEnterRule.afterText) : void 0,
+      previousLineText: onEnterRule.previousLineText ? _$FEc.y(onEnterRule.previousLineText) : void 0,
       action: onEnterRule.action
     };
   }
   static C(onEnterRules) {
-    return onEnterRules.map(_$EEc.B);
+    return onEnterRules.map(_$FEc.B);
   }
   static D(autoClosingPair) {
     return {
@@ -59922,7 +59922,7 @@ var $EEc = class _$EEc {
     };
   }
   static E(autoClosingPairs) {
-    return autoClosingPairs.map(_$EEc.D);
+    return autoClosingPairs.map(_$FEc.D);
   }
   setLanguageConfiguration(extension, languageId, configuration) {
     const { wordPattern } = configuration;
@@ -59944,12 +59944,12 @@ var $EEc = class _$EEc {
     const serializedConfiguration = {
       comments: configuration.comments,
       brackets: configuration.brackets,
-      wordPattern: configuration.wordPattern ? _$EEc.y(configuration.wordPattern) : void 0,
-      indentationRules: configuration.indentationRules ? _$EEc.z(configuration.indentationRules) : void 0,
-      onEnterRules: configuration.onEnterRules ? _$EEc.C(configuration.onEnterRules) : void 0,
+      wordPattern: configuration.wordPattern ? _$FEc.y(configuration.wordPattern) : void 0,
+      indentationRules: configuration.indentationRules ? _$FEc.z(configuration.indentationRules) : void 0,
+      onEnterRules: configuration.onEnterRules ? _$FEc.C(configuration.onEnterRules) : void 0,
       __electricCharacterSupport: configuration.__electricCharacterSupport,
       __characterPairSupport: configuration.__characterPairSupport,
-      autoClosingPairs: configuration.autoClosingPairs ? _$EEc.E(configuration.autoClosingPairs) : void 0
+      autoClosingPairs: configuration.autoClosingPairs ? _$FEc.E(configuration.autoClosingPairs) : void 0
     };
     this.e.$setLanguageConfiguration(handle, languageId, serializedConfiguration);
     return this.p(handle);
@@ -62188,7 +62188,7 @@ $$0b = __decorate([
 var $_0b = "vscode_fetchWebPage_internal";
 
 // out-build/vs/workbench/api/common/extHostLanguageModelTools.js
-var $LEc = class {
+var $MEc = class {
   constructor(mainContext, f) {
     this.f = f;
     this.a = /* @__PURE__ */ new Map();
@@ -62353,7 +62353,7 @@ var $LEc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostLanguages.js
-var $dGc = class {
+var $eGc = class {
   constructor(mainContext, c, d, e) {
     this.c = c;
     this.d = d;
@@ -62528,7 +62528,7 @@ var $dGc = class {
 function isMessageItem(item) {
   return item && item.title;
 }
-var $gGc = class $gGc2 {
+var $hGc = class $hGc2 {
   constructor(mainContext, b) {
     this.b = b;
     this.a = mainContext.getProxy($oW.MainThreadMessageService);
@@ -62577,9 +62577,9 @@ var $gGc = class $gGc2 {
     });
   }
 };
-$gGc = __decorate([
+$hGc = __decorate([
   __param(1, $5n)
-], $gGc);
+], $hGc);
 
 // out-build/vs/workbench/api/common/extHostNotebookDocument.js
 var RawContentChangeEvent = class {
@@ -62597,7 +62597,7 @@ var RawContentChangeEvent = class {
     };
   }
 };
-var $WFc = class {
+var $XFc = class {
   static asModelAddData(cell) {
     return {
       EOL: cell.eol,
@@ -62704,7 +62704,7 @@ var $WFc = class {
   setMime(newMime) {
   }
 };
-var $XFc = class _$XFc {
+var $YFc = class _$YFc {
   static {
     this.a = 0;
   }
@@ -62713,7 +62713,7 @@ var $XFc = class _$XFc {
     this.l = l;
     this.m = m;
     this.uri = uri;
-    this.handle = _$XFc.a++;
+    this.handle = _$YFc.a++;
     this.b = [];
     this.g = 0;
     this.h = false;
@@ -62891,9 +62891,9 @@ var $XFc = class _$XFc {
     splices.reverse().forEach((splice) => {
       const cellDtos = splice[2];
       const newCells = cellDtos.map((cell) => {
-        const extCell = new $WFc(this, this.l, cell);
+        const extCell = new $XFc(this, this.l, cell);
         if (!initialization) {
-          addedCellDocuments.push($WFc.asModelAddData(cell));
+          addedCellDocuments.push($XFc.asModelAddData(cell));
         }
         return extCell;
       });
@@ -62967,7 +62967,7 @@ var $XFc = class _$XFc {
 };
 
 // out-build/vs/workbench/api/common/extHostNotebookEditor.js
-var $YFc = class _$YFc {
+var $ZFc = class _$ZFc {
   static {
     this.apiEditorsToExtHost = /* @__PURE__ */ new WeakMap();
   }
@@ -63023,7 +63023,7 @@ var $YFc = class _$YFc {
           return `NotebookEditor(${this.notebook.uri.toString()})`;
         }
       };
-      _$YFc.apiEditorsToExtHost.set(this.b, this);
+      _$ZFc.apiEditorsToExtHost.set(this.b, this);
     }
     return this.b;
   }
@@ -66381,7 +66381,7 @@ function $RM(globPattern, resource) {
 }
 
 // out-build/vs/workbench/api/common/extHostNotebook.js
-var $aGc = class _$aGc {
+var $bGc = class _$bGc {
   static {
     this.a = 0;
   }
@@ -66409,7 +66409,7 @@ var $aGc = class _$aGc {
     this.onDidCloseNotebookDocument = this.n.event;
     this.o = new $0e();
     this.onDidChangeVisibleNotebookEditors = this.o.event;
-    this.p = new $uEc("NotebookCellStatusBarCache");
+    this.p = new $vEc("NotebookCellStatusBarCache");
     this.x = 0;
     this.y = /* @__PURE__ */ new Map();
     this.b = mainContext.getProxy($oW.MainThreadNotebook);
@@ -66438,7 +66438,7 @@ var $aGc = class _$aGc {
         return arg;
       }
     });
-    _$aGc.C(commands);
+    _$bGc.C(commands);
   }
   getEditorById(editorId) {
     const editor = this.h.get(editorId);
@@ -66483,8 +66483,8 @@ var $aGc = class _$aGc {
     };
   }
   registerNotebookCellStatusBarItemProvider(extension, notebookType, provider) {
-    const handle = _$aGc.a++;
-    const eventHandle = typeof provider.onDidChangeCellStatusBarItems === "function" ? _$aGc.a++ : void 0;
+    const handle = _$bGc.a++;
+    const eventHandle = typeof provider.onDidChangeCellStatusBarItems === "function" ? _$bGc.a++ : void 0;
     this.f.set(handle, provider);
     this.b.$registerNotebookCellStatusBarItemProvider(handle, eventHandle, notebookType);
     let subscription;
@@ -66574,7 +66574,7 @@ var $aGc = class _$aGc {
     }
     const handle = this.x++;
     this.y.set(handle, { viewType, serializer, options: options2 });
-    this.b.$registerNotebookSerializer(handle, { id: extension.identifier, location: extension.extensionLocation }, viewType, NotebookDocumentContentOptions.from(options2), _$aGc.w(extension, registration));
+    this.b.$registerNotebookSerializer(handle, { id: extension.identifier, location: extension.extensionLocation }, viewType, NotebookDocumentContentOptions.from(options2), _$bGc.w(extension, registration));
     return $qd(() => {
       this.b.$unregisterNotebookSerializer(handle);
     });
@@ -66802,7 +66802,7 @@ var $aGc = class _$aGc {
     if (this.h.has(editorId)) {
       throw new Error(`editor with id ALREADY EXSIST: ${editorId}`);
     }
-    const editor = new $YFc(editorId, this.d, document2, data2.visibleRanges.map(NotebookRange.to), data2.selections.map(NotebookRange.to), typeof data2.viewColumn === "number" ? ViewColumn2.to(data2.viewColumn) : void 0, data2.viewType);
+    const editor = new $ZFc(editorId, this.d, document2, data2.visibleRanges.map(NotebookRange.to), data2.selections.map(NotebookRange.to), typeof data2.viewColumn === "number" ? ViewColumn2.to(data2.viewColumn) : void 0, data2.viewType);
     this.h.set(editorId, editor);
   }
   $acceptDocumentAndEditorsDelta(delta2) {
@@ -66830,8 +66830,8 @@ var $aGc = class _$aGc {
         if (this.g.has(uri)) {
           throw new Error(`adding EXISTING notebook ${uri} `);
         }
-        const document2 = new $XFc(this.c, this.q, this.r, uri, modelData);
-        addedCellDocuments.push(...modelData.cells.map((cell) => $WFc.asModelAddData(cell)));
+        const document2 = new $YFc(this.c, this.q, this.r, uri, modelData);
+        addedCellDocuments.push(...modelData.cells.map((cell) => $XFc.asModelAddData(cell)));
         this.g.get(uri)?.dispose();
         this.g.set(uri, document2);
         this.q.$acceptDocumentsAndEditorsDelta({ addedDocuments: addedCellDocuments });
@@ -66900,7 +66900,7 @@ var $aGc = class _$aGc {
 };
 
 // out-build/vs/workbench/api/common/extHostNotebookDocumentSaveParticipant.js
-var $hGc = class {
+var $iGc = class {
   constructor(b, c, d, f = { timeout: 1500, errors: 3 }) {
     this.b = b;
     this.c = c;
@@ -66960,7 +66960,7 @@ var $hGc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostNotebookDocuments.js
-var $iGc = class {
+var $jGc = class {
   constructor(c) {
     this.c = c;
     this.a = new $0e();
@@ -66984,7 +66984,7 @@ var $iGc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostNotebookEditors.js
-var $jGc = class $jGc2 {
+var $kGc = class $kGc2 {
   constructor(c, d) {
     this.c = c;
     this.d = d;
@@ -67022,9 +67022,9 @@ var $jGc = class $jGc2 {
     }
   }
 };
-$jGc = __decorate([
+$kGc = __decorate([
   __param(0, $5n)
-], $jGc);
+], $kGc);
 
 // out-build/vs/workbench/contrib/notebook/common/notebookExecutionService.js
 var CellExecutionUpdateType;
@@ -67047,7 +67047,7 @@ var $nM = $kl("INotebookKernelService");
 var $oM = $kl("INotebookKernelHistoryService");
 
 // out-build/vs/workbench/api/common/extHostNotebookKernels.js
-var $kGc = class $kGc2 {
+var $lGc = class $lGc2 {
   constructor(mainContext, m, n, o, q) {
     this.m = m;
     this.n = n;
@@ -67117,7 +67117,7 @@ var $kGc = class $kGc2 {
     const onDidChangeSelection = new $0e();
     const onDidReceiveMessage = new $0e();
     const data2 = {
-      id: $lGc(extension.identifier, id2),
+      id: $mGc(extension.identifier, id2),
       notebookType: viewType,
       extensionId: extension.identifier,
       extensionLocation: extension.extensionLocation,
@@ -67222,7 +67222,7 @@ var $kGc = class $kGc2 {
           that.q.trace(`NotebookController[${handle}] NOT associated to notebook, associated to THESE notebooks:`, Array.from(associatedNotebooks.keys()).map((u) => u.toString()));
           throw new Error(`notebook controller is NOT associated to notebook: ${cell.notebook.uri.toString()}`);
         }
-        return that._createNotebookCellExecution(cell, $lGc(extension.identifier, this.id));
+        return that._createNotebookCellExecution(cell, $mGc(extension.identifier, this.id));
       },
       createNotebookExecution(notebook) {
         $cQ(extension, "notebookExecution");
@@ -67233,7 +67233,7 @@ var $kGc = class $kGc2 {
           that.q.trace(`NotebookController[${handle}] NOT associated to notebook, associated to THESE notebooks:`, Array.from(associatedNotebooks.keys()).map((u) => u.toString()));
           throw new Error(`notebook controller is NOT associated to notebook: ${notebook.uri.toString()}`);
         }
-        return that._createNotebookExecution(notebook, $lGc(extension.identifier, this.id));
+        return that._createNotebookExecution(notebook, $mGc(extension.identifier, this.id));
       },
       dispose: () => {
         if (!isDisposed) {
@@ -67275,7 +67275,7 @@ var $kGc = class $kGc2 {
   getIdByController(controller) {
     for (const [_, candidate] of this.j) {
       if (candidate.controller === controller) {
-        return $lGc(candidate.extensionId, controller.id);
+        return $mGc(candidate.extensionId, controller.id);
       }
     }
     return null;
@@ -67498,9 +67498,9 @@ var $kGc = class $kGc2 {
     return execution.asApiObject();
   }
 };
-$kGc = __decorate([
+$lGc = __decorate([
   __param(4, $5n)
-], $kGc);
+], $lGc);
 var NotebookCellExecutionTaskState;
 (function(NotebookCellExecutionTaskState2) {
   NotebookCellExecutionTaskState2[NotebookCellExecutionTaskState2["Init"] = 0] = "Init";
@@ -67757,12 +67757,12 @@ var TimeoutBasedCollector = class {
     return this.g(batch).finally(() => deferred.complete());
   }
 };
-function $lGc(extensionIdentifier, id2) {
+function $mGc(extensionIdentifier, id2) {
   return `${extensionIdentifier.value}/${id2}`;
 }
 
 // out-build/vs/workbench/api/common/extHostNotebookRenderers.js
-var $mGc = class {
+var $nGc = class {
   constructor(mainContext, c) {
     this.c = c;
     this.a = /* @__PURE__ */ new Map();
@@ -67781,10 +67781,10 @@ var $mGc = class {
         return this.d(rendererId).event(listener, thisArg, disposables);
       },
       postMessage: (message, editorOrAlias) => {
-        if ($YFc.apiEditorsToExtHost.has(message)) {
+        if ($ZFc.apiEditorsToExtHost.has(message)) {
           [message, editorOrAlias] = [editorOrAlias, message];
         }
-        const extHostEditor = editorOrAlias && $YFc.apiEditorsToExtHost.get(editorOrAlias);
+        const extHostEditor = editorOrAlias && $ZFc.apiEditorsToExtHost.get(editorOrAlias);
         return this.b.$postMessage(extHostEditor?.id, rendererId, message);
       }
     };
@@ -67807,7 +67807,7 @@ var $mGc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostProfileContentHandler.js
-var $pGc = class {
+var $qGc = class {
   constructor(mainContext) {
     this.b = /* @__PURE__ */ new Map();
     this.a = mainContext.getProxy($oW.MainThreadProfileContentHandlers);
@@ -67841,7 +67841,7 @@ var $pGc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostProgress.js
-var $qGc = class {
+var $rGc = class {
   constructor(proxy) {
     this.b = 0;
     this.c = /* @__PURE__ */ new Map();
@@ -67909,7 +67909,7 @@ __decorate([
 ], ProgressCallback.prototype, "throttledReport", null);
 
 // out-build/vs/workbench/api/common/extHostQuickDiff.js
-var $rGc = class _$rGc {
+var $sGc = class _$sGc {
   static {
     this.a = 0;
   }
@@ -67927,7 +67927,7 @@ var $rGc = class _$rGc {
     return $8h(() => provider.provideOriginalResource(uri, token)).then((r) => r || null);
   }
   registerQuickDiffProvider(selector, quickDiffProvider, label, rootUri) {
-    const handle = _$rGc.a++;
+    const handle = _$sGc.a++;
     this.c.set(handle, quickDiffProvider);
     this.b.$registerQuickDiffProvider(handle, DocumentSelector.from(selector, this.d), label, rootUri, quickDiffProvider.visible ?? true);
     return {
@@ -67940,7 +67940,7 @@ var $rGc = class _$rGc {
 };
 
 // out-build/vs/workbench/api/common/extHostQuickOpen.js
-function $sGc(mainContext, workspace, commands) {
+function $tGc(mainContext, workspace, commands) {
   const proxy = mainContext.getProxy($oW.MainThreadQuickOpen);
   class ExtHostQuickOpenImpl {
     constructor(workspace2, commands2) {
@@ -68578,7 +68578,7 @@ function $UN(one, other, caseSensitive = false) {
 }
 
 // out-build/vs/workbench/api/common/extHostSCM.js
-var $uGc_1;
+var $vGc_1;
 function isUri2(thing) {
   return thing instanceof URI;
 }
@@ -68766,7 +68766,7 @@ function commandEquals(a, b) {
 function commandListEquals(a, b) {
   return $yb(a, b, commandEquals);
 }
-var $tGc = class {
+var $uGc = class {
   #proxy;
   #extHostDocuments;
   get value() {
@@ -69131,7 +69131,7 @@ var ExtHostSourceControl = class _ExtHostSourceControl {
       path: `${z}/scm${this.w}/input`,
       query: B ? `rootUri=${encodeURIComponent(B.toString())}` : void 0
     });
-    this.g = new $tGc(x, _extHostDocuments, this.#proxy, this.w, inputBoxDocumentUri);
+    this.g = new $uGc(x, _extHostDocuments, this.#proxy, this.w, inputBoxDocumentUri);
     this.#proxy.$registerSourceControl(this.w, z, A, B, inputBoxDocumentUri);
   }
   createResourceGroup(id2, label, options2) {
@@ -69202,9 +69202,9 @@ __decorate([
 __decorate([
   $Su(100)
 ], ExtHostSourceControl.prototype, "eventuallyUpdateResourceStates", null);
-var $uGc = class $uGc2 {
+var $vGc = class $vGc2 {
   static {
-    $uGc_1 = this;
+    $vGc_1 = this;
   }
   static {
     this.d = 0;
@@ -69255,7 +69255,7 @@ var $uGc = class $uGc2 {
     this.g.$publicLog2("api/scm/createSourceControl", {
       extensionId: extension.identifier.value
     });
-    const handle = $uGc_1.d++;
+    const handle = $vGc_1.d++;
     const sourceControl = new ExtHostSourceControl(extension, this.n, this.f, this.m, id2, label, rootUri);
     this.h.set(handle, sourceControl);
     const sourceControls = this.j.get(extension.identifier) || [];
@@ -69372,12 +69372,12 @@ var $uGc = class $uGc2 {
     }
   }
 };
-$uGc = $uGc_1 = __decorate([
+$vGc = $vGc_1 = __decorate([
   __param(3, $5n)
-], $uGc);
+], $vGc);
 
 // out-build/vs/workbench/api/common/extHostShare.js
-var $vGc = class _$vGc {
+var $wGc = class _$wGc {
   static {
     this.a = 0;
   }
@@ -69392,7 +69392,7 @@ var $vGc = class _$vGc {
     return result ?? void 0;
   }
   registerShareProvider(selector, provider) {
-    const handle = _$vGc.a++;
+    const handle = _$wGc.a++;
     this.c.set(handle, provider);
     this.b.$registerShareProvider(handle, DocumentSelector.from(selector, this.d), provider.id, provider.label, provider.priority);
     return {
@@ -69405,7 +69405,7 @@ var $vGc = class _$vGc {
 };
 
 // out-build/vs/workbench/api/common/extHostSpeech.js
-var $wGc = class _$wGc {
+var $xGc = class _$xGc {
   static {
     this.a = 1;
   }
@@ -69493,7 +69493,7 @@ var $wGc = class _$wGc {
     this.d.delete(session);
   }
   registerProvider(extension, identifier, provider) {
-    const handle = _$wGc.a++;
+    const handle = _$xGc.a++;
     this.c.set(handle, provider);
     this.b.$registerProvider(handle, identifier, { extension, displayName: extension.value });
     return $qd(() => {
@@ -69504,7 +69504,7 @@ var $wGc = class _$wGc {
 };
 
 // out-build/vs/workbench/api/common/extHostStatusBar.js
-var $xGc = class _$xGc {
+var $yGc = class _$yGc {
   static {
     this.a = 0;
   }
@@ -69537,7 +69537,7 @@ var $xGc = class _$xGc {
         this.accessibilityInformation = item.accessibilityInformation;
       }
     } else {
-      this.c = String(_$xGc.a++);
+      this.c = String(_$yGc.a++);
     }
     this.e = extension;
     this.f = id2;
@@ -69619,7 +69619,7 @@ var $xGc = class _$xGc {
     this.x();
   }
   set backgroundColor(color) {
-    if (color && !_$xGc.b.has(color.id)) {
+    if (color && !_$yGc.b.has(color.id)) {
       color = void 0;
     }
     this.p = color;
@@ -69686,7 +69686,7 @@ var $xGc = class _$xGc {
       }
       let color = this.o;
       if (this.p) {
-        color = _$xGc.b.get(this.p.id);
+        color = _$yGc.b.get(this.p.id);
       }
       let tooltip;
       let hasTooltipProvider;
@@ -69738,7 +69738,7 @@ var StatusBarMessage = class {
     }
   }
 };
-var $yGc = class {
+var $zGc = class {
   constructor(mainContext, commands) {
     this.e = /* @__PURE__ */ new Map();
     this.f = /* @__PURE__ */ new Map();
@@ -69760,7 +69760,7 @@ var $yGc = class {
     return !cancellation.isCancellationRequested ? MarkdownString.fromStrict(tooltip) : void 0;
   }
   createStatusBarEntry(extension, id2, alignment, priority) {
-    const entry = new $xGc(this.a, this.b, this.f, extension, id2, alignment, priority, () => this.e.delete(entry.entryId));
+    const entry = new $yGc(this.a, this.b, this.f, extension, id2, alignment, priority, () => this.e.delete(entry.entryId));
     this.e.set(entry.entryId, entry);
     return entry;
   }
@@ -69780,7 +69780,7 @@ var $yGc = class {
 };
 
 // out-build/vs/workbench/api/common/extHostTextEditors.js
-var $PEc = class extends $sd {
+var $QEc = class extends $sd {
   constructor(mainContext, n) {
     super();
     this.n = n;
@@ -69957,7 +69957,7 @@ var $PEc = class extends $sd {
 };
 
 // out-build/vs/workbench/api/common/extHostTheming.js
-var $FGc = class $FGc2 {
+var $GGc = class $GGc2 {
   constructor(_extHostRpc) {
     this.a = new $VX(ColorThemeKind.Dark);
     this.b = new $0e();
@@ -69987,13 +69987,13 @@ var $FGc = class $FGc2 {
     return this.b.event;
   }
 };
-$FGc = __decorate([
+$GGc = __decorate([
   __param(0, $eZ)
-], $FGc);
+], $GGc);
 
 // out-build/vs/workbench/api/common/extHostTimeline.js
-var $GGc = $kl("IExtHostTimeline");
-var $HGc = class {
+var $HGc = $kl("IExtHostTimeline");
+var $IGc = class {
   constructor(mainContext, commands) {
     this.b = /* @__PURE__ */ new Map();
     this.c = /* @__PURE__ */ new Map();
@@ -70589,7 +70589,7 @@ function toTreeItemLabel(label, extension) {
   }
   return void 0;
 }
-var $IGc = class extends $sd {
+var $JGc = class extends $sd {
   constructor(f, g, h) {
     super();
     this.f = f;
@@ -71409,7 +71409,7 @@ var ExtHostTreeView = class _ExtHostTreeView extends $sd {
 };
 
 // out-build/vs/workbench/api/common/extHostUriOpener.js
-var $JGc = class _$JGc {
+var $KGc = class _$KGc {
   static {
     this.a = /* @__PURE__ */ new Set([Schemas.http, Schemas.https]);
   }
@@ -71421,7 +71421,7 @@ var $JGc = class _$JGc {
     if (this.c.has(id2)) {
       throw new Error(`Opener with id '${id2}' already registered`);
     }
-    const invalidScheme = metadata.schemes.find((scheme) => !_$JGc.a.has(scheme));
+    const invalidScheme = metadata.schemes.find((scheme) => !_$KGc.a.has(scheme));
     if (invalidScheme) {
       throw new Error(`Scheme '${invalidScheme}' is not supported. Only http and https are currently supported.`);
     }
@@ -71452,7 +71452,7 @@ var $JGc = class _$JGc {
 };
 
 // out-build/vs/workbench/api/common/extHostUrls.js
-var $KGc = class _$KGc {
+var $LGc = class _$LGc {
   static {
     this.a = 0;
   }
@@ -71466,7 +71466,7 @@ var $KGc = class _$KGc {
     if (this.c.has(extensionId)) {
       throw new Error(`Protocol handler already registered for extension ${extensionId}`);
     }
-    const handle = _$KGc.a++;
+    const handle = _$LGc.a++;
     this.c.add(extensionId);
     this.d.set(handle, handler);
     this.b.$registerUriHandler(handle, extensionId, extension.displayName || extension.name);
@@ -71608,7 +71608,7 @@ var ExtHostWebviewPanel = class extends $sd {
     }
   }
 };
-var $0Ec = class _$0Ec extends $sd {
+var $$Ec = class _$$Ec extends $sd {
   static c() {
     return $6s();
   }
@@ -71631,12 +71631,12 @@ var $0Ec = class _$0Ec extends $sd {
       viewColumn: ViewColumn2.from(viewColumn),
       preserveFocus: typeof showOptions === "object" && !!showOptions.preserveFocus
     };
-    const serializeBuffersForPostMessage = $6Ec(extension);
-    const handle = _$0Ec.c();
-    this.f.$createWebviewPanel($8Ec(extension), handle, viewType, {
+    const serializeBuffersForPostMessage = $7Ec(extension);
+    const handle = _$$Ec.c();
+    this.f.$createWebviewPanel($9Ec(extension), handle, viewType, {
       title,
       panelOptions: serializeWebviewPanelOptions(options2),
-      webviewOptions: $9Ec(extension, this.m, options2),
+      webviewOptions: $0Ec(extension, this.m, options2),
       serializeBuffersForPostMessage
     }, webviewShowOptions);
     const webview = this.j.createNewWebview(handle, options2, extension);
@@ -71681,7 +71681,7 @@ var $0Ec = class _$0Ec extends $sd {
     }
     this.h.set(viewType, { serializer, extension });
     this.f.$registerSerializer(viewType, {
-      serializeBuffersForPostMessage: $6Ec(extension)
+      serializeBuffersForPostMessage: $7Ec(extension)
     });
     return new $qW(() => {
       this.h.delete(viewType);
@@ -71811,7 +71811,7 @@ var ExtHostWebviewView = class extends $sd {
     }
   }
 };
-var $LGc = class {
+var $MGc = class {
   constructor(mainContext, d) {
     this.d = d;
     this.b = /* @__PURE__ */ new Map();
@@ -71823,9 +71823,9 @@ var $LGc = class {
       throw new Error(`View provider for '${viewType}' already registered`);
     }
     this.b.set(viewType, { provider, extension });
-    this.a.$registerWebviewViewProvider($8Ec(extension), viewType, {
+    this.a.$registerWebviewViewProvider($9Ec(extension), viewType, {
       retainContextWhenHidden: webviewOptions?.retainContextWhenHidden,
-      serializeBuffersForPostMessage: $6Ec(extension)
+      serializeBuffersForPostMessage: $7Ec(extension)
     });
     return new $qW(() => {
       this.b.delete(viewType);
@@ -71865,29 +71865,29 @@ var $LGc = class {
 };
 
 // out-build/vs/workbench/api/common/extHost.api.impl.js
-function $OGc(accessor) {
+function $PGc(accessor) {
   const initData = accessor.get($uZ);
-  const extHostFileSystemInfo = accessor.get($AEc);
-  const extHostConsumerFileSystem = accessor.get($2Ec);
-  const extensionService = accessor.get($yFc);
-  const extHostWorkspace = accessor.get($WEc);
+  const extHostFileSystemInfo = accessor.get($BEc);
+  const extHostConsumerFileSystem = accessor.get($3Ec);
+  const extensionService = accessor.get($zFc);
+  const extHostWorkspace = accessor.get($XEc);
   const extHostTelemetry = accessor.get($yZ);
-  const extHostConfiguration = accessor.get($ZEc);
-  const uriTransformer = accessor.get($TEc);
+  const extHostConfiguration = accessor.get($1Ec);
+  const uriTransformer = accessor.get($UEc);
   const rpcProtocol = accessor.get($eZ);
-  const extHostStorage = accessor.get($iFc);
-  const extensionStoragePaths = accessor.get($3Ec);
+  const extHostStorage = accessor.get($jFc);
+  const extensionStoragePaths = accessor.get($4Ec);
   const extHostLoggerService = accessor.get($6n);
   const extHostLogService = accessor.get($5n);
   const extHostTunnelService = accessor.get($1Xb);
-  const extHostApiDeprecation = accessor.get($wEc);
-  const extHostWindow = accessor.get($NGc);
-  const extHostSecretState = accessor.get($qFc);
-  const extHostEditorTabs = accessor.get($_Ec);
-  const extHostManagedSockets = accessor.get($uFc);
-  const extHostAuthentication = accessor.get($GEc);
-  const extHostLanguageModels = accessor.get($JEc);
-  const extHostMcp = accessor.get($eGc);
+  const extHostApiDeprecation = accessor.get($xEc);
+  const extHostWindow = accessor.get($OGc);
+  const extHostSecretState = accessor.get($rFc);
+  const extHostEditorTabs = accessor.get($aFc);
+  const extHostManagedSockets = accessor.get($vFc);
+  const extHostAuthentication = accessor.get($HEc);
+  const extHostLanguageModels = accessor.get($KEc);
+  const extHostMcp = accessor.get($fGc);
   rpcProtocol.set($pW.ExtHostFileSystemInfo, extHostFileSystemInfo);
   rpcProtocol.set($pW.ExtHostLogLevelServiceShape, extHostLoggerService);
   rpcProtocol.set($pW.ExtHostWorkspace, extHostWorkspace);
@@ -71902,68 +71902,68 @@ function $OGc(accessor) {
   rpcProtocol.set($pW.ExtHostManagedSockets, extHostManagedSockets);
   rpcProtocol.set($pW.ExtHostAuthentication, extHostAuthentication);
   rpcProtocol.set($pW.ExtHostChatProvider, extHostLanguageModels);
-  const extHostDecorations = rpcProtocol.set($pW.ExtHostDecorations, accessor.get($OFc));
+  const extHostDecorations = rpcProtocol.set($pW.ExtHostDecorations, accessor.get($PFc));
   const extHostDocumentsAndEditors = rpcProtocol.set($pW.ExtHostDocumentsAndEditors, accessor.get($pZ));
   const extHostCommands = rpcProtocol.set($pW.ExtHostCommands, accessor.get($AZ));
-  const extHostTerminalService = rpcProtocol.set($pW.ExtHostTerminalService, accessor.get($lFc));
-  const extHostTerminalShellIntegration = rpcProtocol.set($pW.ExtHostTerminalShellIntegration, accessor.get($CGc));
-  const extHostDebugService = rpcProtocol.set($pW.ExtHostDebugService, accessor.get($IFc));
-  const extHostSearch = rpcProtocol.set($pW.ExtHostSearch, accessor.get($0Fc));
-  const extHostTask = rpcProtocol.set($pW.ExtHostTask, accessor.get($BGc));
-  const extHostOutputService = rpcProtocol.set($pW.ExtHostOutputService, accessor.get($oGc));
-  const extHostLocalization = rpcProtocol.set($pW.ExtHostLocalization, accessor.get($tFc));
-  const extHostUrls = rpcProtocol.set($pW.ExtHostUrls, new $KGc(rpcProtocol));
-  const extHostDocuments = rpcProtocol.set($pW.ExtHostDocuments, new $DEc(rpcProtocol, extHostDocumentsAndEditors));
-  const extHostDocumentContentProviders = rpcProtocol.set($pW.ExtHostDocumentContentProviders, new $QFc(rpcProtocol, extHostDocumentsAndEditors, extHostLogService));
-  const extHostDocumentSaveParticipant = rpcProtocol.set($pW.ExtHostDocumentSaveParticipant, new $RFc(extHostLogService, extHostDocuments, rpcProtocol.getProxy($oW.MainThreadBulkEdits)));
-  const extHostNotebook = rpcProtocol.set($pW.ExtHostNotebook, new $aGc(rpcProtocol, extHostCommands, extHostDocumentsAndEditors, extHostDocuments, extHostConsumerFileSystem, extHostSearch, extHostLogService));
-  const extHostNotebookDocuments = rpcProtocol.set($pW.ExtHostNotebookDocuments, new $iGc(extHostNotebook));
-  const extHostNotebookEditors = rpcProtocol.set($pW.ExtHostNotebookEditors, new $jGc(extHostLogService, extHostNotebook));
-  const extHostNotebookKernels = rpcProtocol.set($pW.ExtHostNotebookKernels, new $kGc(rpcProtocol, initData, extHostNotebook, extHostCommands, extHostLogService));
-  const extHostNotebookRenderers = rpcProtocol.set($pW.ExtHostNotebookRenderers, new $mGc(rpcProtocol, extHostNotebook));
-  const extHostNotebookDocumentSaveParticipant = rpcProtocol.set($pW.ExtHostNotebookDocumentSaveParticipant, new $hGc(extHostLogService, extHostNotebook, rpcProtocol.getProxy($oW.MainThreadBulkEdits)));
-  const extHostEditors = rpcProtocol.set($pW.ExtHostEditors, new $PEc(rpcProtocol, extHostDocumentsAndEditors));
-  const extHostTreeViews = rpcProtocol.set($pW.ExtHostTreeViews, new $IGc(rpcProtocol.getProxy($oW.MainThreadTreeViews), extHostCommands, extHostLogService));
-  const extHostEditorInsets = rpcProtocol.set($pW.ExtHostEditorInsets, new $QEc(rpcProtocol.getProxy($oW.MainThreadEditorInsets), extHostEditors, initData.remote));
-  const extHostDiagnostics = rpcProtocol.set($pW.ExtHostDiagnostics, new $CEc(rpcProtocol, extHostLogService, extHostFileSystemInfo, extHostDocumentsAndEditors));
-  const extHostLanguages = rpcProtocol.set($pW.ExtHostLanguages, new $dGc(rpcProtocol, extHostDocuments, extHostCommands.converter, uriTransformer));
-  const extHostLanguageFeatures = rpcProtocol.set($pW.ExtHostLanguageFeatures, new $EEc(rpcProtocol, uriTransformer, extHostDocuments, extHostCommands, extHostDiagnostics, extHostLogService, extHostApiDeprecation, extHostTelemetry));
-  const extHostCodeMapper = rpcProtocol.set($pW.ExtHostCodeMapper, new $REc(rpcProtocol));
-  const extHostFileSystem = rpcProtocol.set($pW.ExtHostFileSystem, new $UFc(rpcProtocol, extHostLanguageFeatures));
-  const extHostFileSystemEvent = rpcProtocol.set($pW.ExtHostFileSystemEventService, new $VFc(rpcProtocol, extHostLogService, extHostDocumentsAndEditors));
-  const extHostQuickOpen = rpcProtocol.set($pW.ExtHostQuickOpen, $sGc(rpcProtocol, extHostWorkspace, extHostCommands));
-  const extHostSCM = rpcProtocol.set($pW.ExtHostSCM, new $uGc(rpcProtocol, extHostCommands, extHostDocuments, extHostLogService));
-  const extHostQuickDiff = rpcProtocol.set($pW.ExtHostQuickDiff, new $rGc(rpcProtocol, uriTransformer));
-  const extHostShare = rpcProtocol.set($pW.ExtHostShare, new $vGc(rpcProtocol, uriTransformer));
-  const extHostComment = rpcProtocol.set($pW.ExtHostComments, $SEc(rpcProtocol, extHostCommands, extHostDocuments));
-  const extHostProgress = rpcProtocol.set($pW.ExtHostProgress, new $qGc(rpcProtocol.getProxy($oW.MainThreadProgress)));
-  const extHostLabelService = rpcProtocol.set($pW.ExtHostLabelService, new $cGc(rpcProtocol));
-  const extHostTheming = rpcProtocol.set($pW.ExtHostTheming, new $FGc(rpcProtocol));
-  const extHostTimeline = rpcProtocol.set($pW.ExtHostTimeline, new $HGc(rpcProtocol, extHostCommands));
-  const extHostWebviews = rpcProtocol.set($pW.ExtHostWebviews, new $7Ec(rpcProtocol, initData.remote, extHostWorkspace, extHostLogService, extHostApiDeprecation));
-  const extHostWebviewPanels = rpcProtocol.set($pW.ExtHostWebviewPanels, new $0Ec(rpcProtocol, extHostWebviews, extHostWorkspace));
-  const extHostCustomEditors = rpcProtocol.set($pW.ExtHostCustomEditors, new $$Ec(rpcProtocol, extHostDocuments, extensionStoragePaths, extHostWebviews, extHostWebviewPanels));
-  const extHostWebviewViews = rpcProtocol.set($pW.ExtHostWebviewViews, new $LGc(rpcProtocol, extHostWebviews));
-  const extHostTesting = rpcProtocol.set($pW.ExtHostTesting, accessor.get($BFc));
-  const extHostUriOpeners = rpcProtocol.set($pW.ExtHostUriOpeners, new $JGc(rpcProtocol));
-  const extHostProfileContentHandlers = rpcProtocol.set($pW.ExtHostProfileContentHandlers, new $pGc(rpcProtocol));
-  rpcProtocol.set($pW.ExtHostInteractive, new $bGc(rpcProtocol, extHostNotebook, extHostDocumentsAndEditors, extHostCommands, extHostLogService));
-  const extHostLanguageModelTools = rpcProtocol.set($pW.ExtHostLanguageModelTools, new $LEc(rpcProtocol, extHostLanguageModels));
-  const extHostChatAgents2 = rpcProtocol.set($pW.ExtHostChatAgents2, new $MEc(rpcProtocol, extHostLogService, extHostCommands, extHostDocuments, extHostLanguageModels, extHostDiagnostics, extHostLanguageModelTools));
-  const extHostAiRelatedInformation = rpcProtocol.set($pW.ExtHostAiRelatedInformation, new $vEc(rpcProtocol));
-  const extHostAiEmbeddingVector = rpcProtocol.set($pW.ExtHostAiEmbeddingVector, new $TFc(rpcProtocol));
-  const extHostStatusBar = rpcProtocol.set($pW.ExtHostStatusBar, new $yGc(rpcProtocol, extHostCommands.converter));
-  const extHostSpeech = rpcProtocol.set($pW.ExtHostSpeech, new $wGc(rpcProtocol));
-  const extHostEmbeddings = rpcProtocol.set($pW.ExtHostEmbeddings, new $SFc(rpcProtocol));
-  rpcProtocol.set($pW.ExtHostMcp, accessor.get($eGc));
+  const extHostTerminalService = rpcProtocol.set($pW.ExtHostTerminalService, accessor.get($mFc));
+  const extHostTerminalShellIntegration = rpcProtocol.set($pW.ExtHostTerminalShellIntegration, accessor.get($DGc));
+  const extHostDebugService = rpcProtocol.set($pW.ExtHostDebugService, accessor.get($JFc));
+  const extHostSearch = rpcProtocol.set($pW.ExtHostSearch, accessor.get($$Fc));
+  const extHostTask = rpcProtocol.set($pW.ExtHostTask, accessor.get($CGc));
+  const extHostOutputService = rpcProtocol.set($pW.ExtHostOutputService, accessor.get($pGc));
+  const extHostLocalization = rpcProtocol.set($pW.ExtHostLocalization, accessor.get($uFc));
+  const extHostUrls = rpcProtocol.set($pW.ExtHostUrls, new $LGc(rpcProtocol));
+  const extHostDocuments = rpcProtocol.set($pW.ExtHostDocuments, new $EEc(rpcProtocol, extHostDocumentsAndEditors));
+  const extHostDocumentContentProviders = rpcProtocol.set($pW.ExtHostDocumentContentProviders, new $RFc(rpcProtocol, extHostDocumentsAndEditors, extHostLogService));
+  const extHostDocumentSaveParticipant = rpcProtocol.set($pW.ExtHostDocumentSaveParticipant, new $SFc(extHostLogService, extHostDocuments, rpcProtocol.getProxy($oW.MainThreadBulkEdits)));
+  const extHostNotebook = rpcProtocol.set($pW.ExtHostNotebook, new $bGc(rpcProtocol, extHostCommands, extHostDocumentsAndEditors, extHostDocuments, extHostConsumerFileSystem, extHostSearch, extHostLogService));
+  const extHostNotebookDocuments = rpcProtocol.set($pW.ExtHostNotebookDocuments, new $jGc(extHostNotebook));
+  const extHostNotebookEditors = rpcProtocol.set($pW.ExtHostNotebookEditors, new $kGc(extHostLogService, extHostNotebook));
+  const extHostNotebookKernels = rpcProtocol.set($pW.ExtHostNotebookKernels, new $lGc(rpcProtocol, initData, extHostNotebook, extHostCommands, extHostLogService));
+  const extHostNotebookRenderers = rpcProtocol.set($pW.ExtHostNotebookRenderers, new $nGc(rpcProtocol, extHostNotebook));
+  const extHostNotebookDocumentSaveParticipant = rpcProtocol.set($pW.ExtHostNotebookDocumentSaveParticipant, new $iGc(extHostLogService, extHostNotebook, rpcProtocol.getProxy($oW.MainThreadBulkEdits)));
+  const extHostEditors = rpcProtocol.set($pW.ExtHostEditors, new $QEc(rpcProtocol, extHostDocumentsAndEditors));
+  const extHostTreeViews = rpcProtocol.set($pW.ExtHostTreeViews, new $JGc(rpcProtocol.getProxy($oW.MainThreadTreeViews), extHostCommands, extHostLogService));
+  const extHostEditorInsets = rpcProtocol.set($pW.ExtHostEditorInsets, new $REc(rpcProtocol.getProxy($oW.MainThreadEditorInsets), extHostEditors, initData.remote));
+  const extHostDiagnostics = rpcProtocol.set($pW.ExtHostDiagnostics, new $DEc(rpcProtocol, extHostLogService, extHostFileSystemInfo, extHostDocumentsAndEditors));
+  const extHostLanguages = rpcProtocol.set($pW.ExtHostLanguages, new $eGc(rpcProtocol, extHostDocuments, extHostCommands.converter, uriTransformer));
+  const extHostLanguageFeatures = rpcProtocol.set($pW.ExtHostLanguageFeatures, new $FEc(rpcProtocol, uriTransformer, extHostDocuments, extHostCommands, extHostDiagnostics, extHostLogService, extHostApiDeprecation, extHostTelemetry));
+  const extHostCodeMapper = rpcProtocol.set($pW.ExtHostCodeMapper, new $SEc(rpcProtocol));
+  const extHostFileSystem = rpcProtocol.set($pW.ExtHostFileSystem, new $VFc(rpcProtocol, extHostLanguageFeatures));
+  const extHostFileSystemEvent = rpcProtocol.set($pW.ExtHostFileSystemEventService, new $WFc(rpcProtocol, extHostLogService, extHostDocumentsAndEditors));
+  const extHostQuickOpen = rpcProtocol.set($pW.ExtHostQuickOpen, $tGc(rpcProtocol, extHostWorkspace, extHostCommands));
+  const extHostSCM = rpcProtocol.set($pW.ExtHostSCM, new $vGc(rpcProtocol, extHostCommands, extHostDocuments, extHostLogService));
+  const extHostQuickDiff = rpcProtocol.set($pW.ExtHostQuickDiff, new $sGc(rpcProtocol, uriTransformer));
+  const extHostShare = rpcProtocol.set($pW.ExtHostShare, new $wGc(rpcProtocol, uriTransformer));
+  const extHostComment = rpcProtocol.set($pW.ExtHostComments, $TEc(rpcProtocol, extHostCommands, extHostDocuments));
+  const extHostProgress = rpcProtocol.set($pW.ExtHostProgress, new $rGc(rpcProtocol.getProxy($oW.MainThreadProgress)));
+  const extHostLabelService = rpcProtocol.set($pW.ExtHostLabelService, new $dGc(rpcProtocol));
+  const extHostTheming = rpcProtocol.set($pW.ExtHostTheming, new $GGc(rpcProtocol));
+  const extHostTimeline = rpcProtocol.set($pW.ExtHostTimeline, new $IGc(rpcProtocol, extHostCommands));
+  const extHostWebviews = rpcProtocol.set($pW.ExtHostWebviews, new $8Ec(rpcProtocol, initData.remote, extHostWorkspace, extHostLogService, extHostApiDeprecation));
+  const extHostWebviewPanels = rpcProtocol.set($pW.ExtHostWebviewPanels, new $$Ec(rpcProtocol, extHostWebviews, extHostWorkspace));
+  const extHostCustomEditors = rpcProtocol.set($pW.ExtHostCustomEditors, new $_Ec(rpcProtocol, extHostDocuments, extensionStoragePaths, extHostWebviews, extHostWebviewPanels));
+  const extHostWebviewViews = rpcProtocol.set($pW.ExtHostWebviewViews, new $MGc(rpcProtocol, extHostWebviews));
+  const extHostTesting = rpcProtocol.set($pW.ExtHostTesting, accessor.get($CFc));
+  const extHostUriOpeners = rpcProtocol.set($pW.ExtHostUriOpeners, new $KGc(rpcProtocol));
+  const extHostProfileContentHandlers = rpcProtocol.set($pW.ExtHostProfileContentHandlers, new $qGc(rpcProtocol));
+  rpcProtocol.set($pW.ExtHostInteractive, new $cGc(rpcProtocol, extHostNotebook, extHostDocumentsAndEditors, extHostCommands, extHostLogService));
+  const extHostLanguageModelTools = rpcProtocol.set($pW.ExtHostLanguageModelTools, new $MEc(rpcProtocol, extHostLanguageModels));
+  const extHostChatAgents2 = rpcProtocol.set($pW.ExtHostChatAgents2, new $NEc(rpcProtocol, extHostLogService, extHostCommands, extHostDocuments, extHostLanguageModels, extHostDiagnostics, extHostLanguageModelTools));
+  const extHostAiRelatedInformation = rpcProtocol.set($pW.ExtHostAiRelatedInformation, new $wEc(rpcProtocol));
+  const extHostAiEmbeddingVector = rpcProtocol.set($pW.ExtHostAiEmbeddingVector, new $UFc(rpcProtocol));
+  const extHostStatusBar = rpcProtocol.set($pW.ExtHostStatusBar, new $zGc(rpcProtocol, extHostCommands.converter));
+  const extHostSpeech = rpcProtocol.set($pW.ExtHostSpeech, new $xGc(rpcProtocol));
+  const extHostEmbeddings = rpcProtocol.set($pW.ExtHostEmbeddings, new $TFc(rpcProtocol));
+  rpcProtocol.set($pW.ExtHostMcp, accessor.get($fGc));
   const expected = Object.values($pW);
   rpcProtocol.assertRegistered(expected);
-  const extHostBulkEdits = new $IEc(rpcProtocol, extHostDocumentsAndEditors);
-  const extHostClipboard = new $OEc(rpcProtocol);
-  const extHostMessageService = new $gGc(rpcProtocol, extHostLogService);
-  const extHostDialogs = new $PFc(rpcProtocol);
-  const extHostChatStatus = new $NEc(rpcProtocol);
-  $FEc.register(extHostCommands);
+  const extHostBulkEdits = new $JEc(rpcProtocol, extHostDocumentsAndEditors);
+  const extHostClipboard = new $PEc(rpcProtocol);
+  const extHostMessageService = new $hGc(rpcProtocol, extHostLogService);
+  const extHostDialogs = new $QFc(rpcProtocol);
+  const extHostChatStatus = new $OEc(rpcProtocol);
+  $GEc.register(extHostCommands);
   return function(extension, extensionInfo, configProvider) {
     function _asExtensionEvent(actual) {
       return (listener, thisArgs, disposables) => {
@@ -72198,12 +72198,12 @@ function $OGc(accessor) {
         }
         const mine = extensionInfo.mine.getExtensionDescription(extensionId);
         if (mine) {
-          return new $zFc(extensionService, extension.identifier, mine, extensionKind, false);
+          return new $AFc(extensionService, extension.identifier, mine, extensionKind, false);
         }
         if (includeFromDifferentExtensionHosts) {
           const foreign = extensionInfo.all.getExtensionDescription(extensionId);
           if (foreign) {
-            return new $zFc(extensionService, extension.identifier, foreign, extensionKind, true);
+            return new $AFc(extensionService, extension.identifier, foreign, extensionKind, true);
           }
         }
         return void 0;
@@ -72211,7 +72211,7 @@ function $OGc(accessor) {
       get all() {
         const result = [];
         for (const desc of extensionInfo.mine.getAllExtensionDescriptions()) {
-          result.push(new $zFc(extensionService, extension.identifier, desc, extensionKind, false));
+          result.push(new $AFc(extensionService, extension.identifier, desc, extensionKind, false));
         }
         return result;
       },
@@ -72221,7 +72221,7 @@ function $OGc(accessor) {
         const result = [];
         for (const desc of extensionInfo.all.getAllExtensionDescriptions()) {
           const isFromDifferentExtensionHost = !local.has(desc.identifier);
-          result.push(new $zFc(extensionService, extension.identifier, desc, extensionKind, isFromDifferentExtensionHost));
+          result.push(new $AFc(extensionService, extension.identifier, desc, extensionKind, isFromDifferentExtensionHost));
         }
         return result;
       },
@@ -73494,7 +73494,7 @@ function $OGc(accessor) {
 
 // out-build/vs/workbench/api/common/extHostRequireInterceptor.js
 var NodeModuleAliasingModuleFactory_1;
-var $SGc = class $SGc2 {
+var $TGc = class $TGc2 {
   constructor(c, d, e, f, g, h, i) {
     this.c = c;
     this.d = d;
@@ -73535,13 +73535,13 @@ var $SGc = class $SGc2 {
     }
   }
 };
-$SGc = __decorate([
+$TGc = __decorate([
   __param(2, $jl),
-  __param(3, $ZEc),
-  __param(4, $yFc),
+  __param(3, $1Ec),
+  __param(4, $zFc),
   __param(5, $uZ),
   __param(6, $5n)
-], $SGc);
+], $TGc);
 var NodeModuleAliasingModuleFactory = class NodeModuleAliasingModuleFactory2 {
   static {
     NodeModuleAliasingModuleFactory_1 = this;
@@ -73666,7 +73666,7 @@ OpenNodeModuleFactory = __decorate([
 ], OpenNodeModuleFactory);
 
 // out-build/vs/workbench/api/common/extHostConsoleForwarder.js
-var $QGc = class $QGc2 {
+var $RGc = class $RGc2 {
   constructor(extHostRpc, initData) {
     this.a = extHostRpc.getProxy($oW.MainThreadConsole);
     this.b = initData.consoleForward.includeStack;
@@ -73708,10 +73708,10 @@ var $QGc = class $QGc2 {
     }
   }
 };
-$QGc = __decorate([
+$RGc = __decorate([
   __param(0, $eZ),
   __param(1, $uZ)
-], $QGc);
+], $RGc);
 var MAX_LENGTH = 1e5;
 function safeStringifyArgumentsToArray(args, includeStack) {
   const argsArray = [];
@@ -73749,7 +73749,7 @@ function safeStringifyArgumentsToArray(args, includeStack) {
 }
 
 // out-build/vs/workbench/api/worker/extHostConsoleForwarder.js
-var $5Ic = class $5Ic2 extends $QGc {
+var $6Ic = class $6Ic2 extends $RGc {
   constructor(extHostRpc, initData) {
     super(extHostRpc, initData);
   }
@@ -73757,13 +73757,13 @@ var $5Ic = class $5Ic2 extends $QGc {
     original.apply(console, args);
   }
 };
-$5Ic = __decorate([
+$6Ic = __decorate([
   __param(0, $eZ),
   __param(1, $uZ)
-], $5Ic);
+], $6Ic);
 
 // out-build/vs/workbench/api/worker/extHostExtensionService.js
-var WorkerRequireInterceptor = class extends $SGc {
+var WorkerRequireInterceptor = class extends $TGc {
   j() {
   }
   getModule(request, parent) {
@@ -73782,14 +73782,14 @@ var WorkerRequireInterceptor = class extends $SGc {
     return void 0;
   }
 };
-var $6Ic = class extends $xFc {
+var $7Ic = class extends $yFc {
   constructor() {
     super(...arguments);
     this.extensionRuntime = ExtensionRuntime.Webworker;
   }
   async vb() {
-    this.h.createInstance($5Ic);
-    const apiFactory = this.h.invokeFunction($OGc);
+    this.h.createInstance($6Ic);
+    const apiFactory = this.h.invokeFunction($PGc);
     this.r = this.h.createInstance(WorkerRequireInterceptor, apiFactory, { mine: this.J, all: this.L });
     await this.r.install();
     performance.mark("code/extHost/didInitAPI");
@@ -73873,16 +73873,16 @@ function ensureSuffix(path, suffix) {
 }
 
 // out-build/vs/workbench/api/worker/extHost.worker.services.js
-$ND($5n, new $hl($RGc, [true], true));
+$ND($5n, new $hl($SGc, [true], true));
 $ND(
-  $yFc,
-  $6Ic,
+  $zFc,
+  $7Ic,
   0
   /* InstantiationType.Eager */
 );
 $ND(
-  $3Ec,
   $4Ec,
+  $5Ec,
   0
   /* InstantiationType.Eager */
 );
@@ -73971,7 +73971,7 @@ if (self.Worker) {
     return new _Worker(blobUrl, options2);
   };
 } else {
-  self.Worker = class extends $7Ic {
+  self.Worker = class extends $8Ic {
     constructor(stringOrUrl, options2) {
       super(nativePostMessage, stringOrUrl, { name: $sc(stringOrUrl.toString()), ...options2 });
     }
@@ -74041,7 +74041,7 @@ var onTerminate = (reason) => nativeClose();
 function isInitMessage(a) {
   return !!a && typeof a === "object" && a.type === "vscode.init" && a.data instanceof Map;
 }
-function $8Ic() {
+function $9Ic() {
   $S(`code/extHost/willConnectToRenderer`);
   const res = new ExtensionWorker();
   return {
@@ -74051,7 +74051,7 @@ function $8Ic() {
       }
       connectToRenderer(res.protocol).then((data2) => {
         $S(`code/extHost/didWaitForInitData`);
-        const extHostMain = new $UGc(data2.protocol, data2.initData, hostUtil, null, message.data);
+        const extHostMain = new $VGc(data2.protocol, data2.initData, hostUtil, null, message.data);
         patchFetching((uri) => extHostMain.asBrowserUri(uri));
         onTerminate = (reason) => extHostMain.terminate(reason);
       });
@@ -74060,7 +74060,7 @@ function $8Ic() {
 }
 
 // out-build/vs/workbench/api/worker/extensionHostWorkerMain.js
-var data = $8Ic();
+var data = $9Ic();
 self.onmessage = (e) => data.onmessage(e.data);
 
 //# sourceMappingURL=extensionHostWorkerMain.js.map

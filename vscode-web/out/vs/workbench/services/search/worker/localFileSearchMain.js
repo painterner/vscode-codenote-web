@@ -6451,15 +6451,15 @@ function aggregateBasenameMatches(parsedPatterns, result) {
 }
 
 // out-build/vs/workbench/services/search/common/localFileSearchWorkerTypes.js
-var $luc = class _$luc {
+var $muc = class _$muc {
   static {
     this.CHANNEL_NAME = "localFileSearchWorkerHost";
   }
   static getChannel(workerServer) {
-    return workerServer.getChannel(_$luc.CHANNEL_NAME);
+    return workerServer.getChannel(_$muc.CHANNEL_NAME);
   }
   static setChannel(workerClient, obj) {
-    workerClient.setChannel(_$luc.CHANNEL_NAME, obj);
+    workerClient.setChannel(_$muc.CHANNEL_NAME, obj);
   }
 };
 
@@ -6979,7 +6979,7 @@ var $5D = class _$5D {
 };
 
 // out-build/vs/workbench/services/search/common/getFileResults.js
-var $nKc = (bytes, pattern, options) => {
+var $oKc = (bytes, pattern, options) => {
   let text;
   if (bytes[0] === 255 && bytes[1] === 254) {
     text = new TextDecoder("utf-16le").decode(bytes);
@@ -7443,13 +7443,13 @@ var time = async (name, task) => {
   console.info(name, itr, "took", end - start);
   return r;
 };
-function $oKc(workerServer) {
-  return new $pKc(workerServer);
+function $pKc(workerServer) {
+  return new $qKc(workerServer);
 }
-var $pKc = class {
+var $qKc = class {
   constructor(workerServer) {
     this.cancellationTokens = /* @__PURE__ */ new Map();
-    this.d = $luc.getChannel(workerServer);
+    this.d = $muc.getChannel(workerServer);
   }
   $cancelQuery(queryId) {
     this.cancellationTokens.get(queryId)?.cancel();
@@ -7505,7 +7505,7 @@ var $pKc = class {
           return;
         }
         const bytes = new Uint8Array(contents);
-        const fileResults = $nKc(bytes, pattern, {
+        const fileResults = $oKc(bytes, pattern, {
           surroundingContext: query.surroundingContext ?? 0,
           previewOptions: query.previewOptions,
           remainingResultQuota: query.maxResults ? query.maxResults - resultCount : 1e4
@@ -7693,6 +7693,6 @@ function pathIncludedInQuery(queryProps, path, extUri) {
 }
 
 // out-build/vs/workbench/services/search/worker/localFileSearchMain.js
-$26($oKc);
+$26($pKc);
 
 //# sourceMappingURL=localFileSearchMain.js.map

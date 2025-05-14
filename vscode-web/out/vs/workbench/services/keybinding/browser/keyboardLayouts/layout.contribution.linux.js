@@ -377,9 +377,9 @@ export default {
 
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/_.contribution.js
-var $gKc = class _$gKc {
+var $hKc = class _$hKc {
   static {
-    this.INSTANCE = new _$gKc();
+    this.INSTANCE = new _$hKc();
   }
   get layoutInfos() {
     return this.a;
@@ -393,7 +393,7 @@ var $gKc = class _$gKc {
 };
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/en.linux.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { model: "pc105", group: 0, layout: "us", variant: "", options: "", rules: "evdev", isUSStandard: true },
   secondaryLayouts: [
     { model: "pc105", group: 0, layout: "cn", variant: "", options: "", rules: "evdev" }
@@ -576,7 +576,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/es.linux.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { model: "pc105", group: 0, layout: "es", variant: "", options: "", rules: "evdev" },
   secondaryLayouts: [],
   mapping: {
@@ -757,7 +757,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/de.linux.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { model: "pc104", group: 0, layout: "de", variant: "", options: "", rules: "base" },
   secondaryLayouts: [],
   mapping: {
@@ -938,7 +938,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/fr.linux.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { model: "pc104", group: 0, layout: "fr", variant: "", options: "", rules: "base" },
   secondaryLayouts: [],
   mapping: {
@@ -1119,7 +1119,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/ru.linux.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { model: "pc104", group: 0, layout: "ru", variant: ",", options: "", rules: "base" },
   secondaryLayouts: [],
   mapping: {
@@ -1299,7 +1299,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
   }
 });
 export {
-  $gKc as KeyboardLayoutContribution
+  $hKc as KeyboardLayoutContribution
 };
 
 //# sourceMappingURL=layout.contribution.linux.js.map

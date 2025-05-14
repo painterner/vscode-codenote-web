@@ -6946,10 +6946,10 @@ var $Jab = class extends $FN {
 };
 
 // out-build/vs/workbench/services/languageDetection/browser/languageDetectionWebWorker.js
-function $lKc(workerServer) {
-  return new $mKc(workerServer);
+function $mKc(workerServer) {
+  return new $nKc(workerServer);
 }
-var $mKc = class _$mKc {
+var $nKc = class _$nKc {
   static {
     this.a = 0.2;
   }
@@ -7106,7 +7106,7 @@ var $mKc = class _$mKc {
       case "py":
       case "xml":
       case "php":
-        modelResult.confidence += _$mKc.b;
+        modelResult.confidence += _$nKc.b;
         break;
       // case 'yaml': // YAML has been know to cause incorrect language detection because the language is pretty simple. We don't want to increase the confidence for this.
       case "cpp":
@@ -7114,7 +7114,7 @@ var $mKc = class _$mKc {
       case "java":
       case "cs":
       case "c":
-        modelResult.confidence += _$mKc.c;
+        modelResult.confidence += _$nKc.c;
         break;
       // For the following languages, we need to be extra confident that the language is correct because
       // we've had issues like #131912 that caused incorrect guesses. To enforce this, we subtract the
@@ -7127,7 +7127,7 @@ var $mKc = class _$mKc {
       // languages that aren't provided by default in VS Code
       case "csv":
       case "toml":
-        modelResult.confidence -= _$mKc.d;
+        modelResult.confidence -= _$nKc.d;
         break;
       default:
         break;
@@ -7152,11 +7152,11 @@ var $mKc = class _$mKc {
     } catch (e) {
       console.warn(e);
     }
-    if (!modelResults || modelResults.length === 0 || modelResults[0].confidence < _$mKc.a) {
+    if (!modelResults || modelResults.length === 0 || modelResults[0].confidence < _$nKc.a) {
       return;
     }
     const firstModelResult = this.q(modelResults[0]);
-    if (firstModelResult.confidence < _$mKc.a) {
+    if (firstModelResult.confidence < _$nKc.a) {
       return;
     }
     const possibleLanguages = [firstModelResult];
@@ -7166,17 +7166,17 @@ var $mKc = class _$mKc {
       }
       current = this.q(current);
       const currentHighest = possibleLanguages[possibleLanguages.length - 1];
-      if (currentHighest.confidence - current.confidence >= _$mKc.a) {
+      if (currentHighest.confidence - current.confidence >= _$nKc.a) {
         while (possibleLanguages.length) {
           yield possibleLanguages.shift();
         }
-        if (current.confidence > _$mKc.a) {
+        if (current.confidence > _$nKc.a) {
           possibleLanguages.push(current);
           continue;
         }
         return;
       } else {
-        if (current.confidence > _$mKc.a) {
+        if (current.confidence > _$nKc.a) {
           possibleLanguages.push(current);
           continue;
         }
@@ -7491,6 +7491,6 @@ function $26(factory) {
 }
 
 // out-build/vs/workbench/services/languageDetection/browser/languageDetectionWebWorkerMain.js
-$26($lKc);
+$26($mKc);
 
 //# sourceMappingURL=languageDetectionWebWorkerMain.js.map

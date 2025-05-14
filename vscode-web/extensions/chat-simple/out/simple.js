@@ -144,10 +144,16 @@ function registerSimpleParticipant(context) {
             kind: feedback.kind
         });
     }));
+    context.subscriptions.push(vscode.commands.registerCommand('jellyvai-message-req', (data) => {
+        console.log("get jellyvai-message", JSON.stringify(data));
+        // onEnvReq(data.data)
+    }));
     context.subscriptions.push(vscode.commands.registerCommand('jellyvai-message', (data) => {
         // console.log("get jellyvai-message", JSON.stringify(data))
         (0, EventService_1.onEnvReq)(data.data);
     }));
+    vscode.commands.executeCommand('jellyvai-message-req', {});
+    vscode.commands.executeCommand('chat.jellyvaiMessageReq', {});
     context.subscriptions.push(cat, 
     // Register the command handler for the /meow followup
     vscode.commands.registerTextEditorCommand(CAT_NAMES_COMMAND_ID, async (textEditor) => {

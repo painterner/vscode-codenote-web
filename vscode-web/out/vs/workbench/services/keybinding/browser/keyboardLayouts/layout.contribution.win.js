@@ -377,9 +377,9 @@ export default {
 
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/_.contribution.js
-var $gKc = class _$gKc {
+var $hKc = class _$hKc {
   static {
-    this.INSTANCE = new _$gKc();
+    this.INSTANCE = new _$hKc();
   }
   get layoutInfos() {
     return this.a;
@@ -393,7 +393,7 @@ var $gKc = class _$gKc {
 };
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/en.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000409", id: "", text: "US", isUSStandard: true },
   secondaryLayouts: [
     { name: "00000804", id: "", text: "Chinese (Simplified) - US Keyboard" },
@@ -561,7 +561,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/es-latin.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "0000080A", id: "", text: "Latin American" },
   secondaryLayouts: [],
   mapping: {
@@ -724,7 +724,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/en-in.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00004009", id: "", text: "India" },
   secondaryLayouts: [],
   mapping: {
@@ -887,7 +887,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/de.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000407", id: "", text: "German" },
   secondaryLayouts: [],
   mapping: {
@@ -1050,7 +1050,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/en-uk.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000809", id: "", text: "United Kingdom" },
   secondaryLayouts: [],
   mapping: {
@@ -1213,7 +1213,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/fr.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "0000040C", id: "", text: "French" },
   secondaryLayouts: [],
   mapping: {
@@ -1376,7 +1376,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/pt-br.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000416", id: "", text: "Portuguese (Brazilian ABNT)" },
   secondaryLayouts: [],
   mapping: {
@@ -1539,7 +1539,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/es.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "0000040A", id: "", text: "Spanish" },
   secondaryLayouts: [],
   mapping: {
@@ -1702,7 +1702,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/en-intl.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00020409", id: "0001", text: "United States-International" },
   secondaryLayouts: [],
   mapping: {
@@ -1865,7 +1865,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/ru.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000419", id: "", text: "Russian" },
   secondaryLayouts: [],
   mapping: {
@@ -2028,7 +2028,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/pl.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000415", id: "", text: "Polish (Programmers)" },
   secondaryLayouts: [],
   mapping: {
@@ -2191,7 +2191,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/it.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000410", id: "", text: "Italian" },
   secondaryLayouts: [],
   mapping: {
@@ -2354,7 +2354,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/sv.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "0000041D", id: "", text: "Swedish" },
   secondaryLayouts: [
     { name: "0000040B", id: "", text: "Finnish" }
@@ -2519,7 +2519,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/tr.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "0000041F", id: "", text: "Turkish Q" },
   secondaryLayouts: [],
   mapping: {
@@ -2682,7 +2682,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/pt.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000816", id: "", text: "Portuguese" },
   secondaryLayouts: [],
   mapping: {
@@ -2845,7 +2845,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/dk.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000406", id: "", text: "Danish" },
   secondaryLayouts: [],
   mapping: {
@@ -3008,7 +3008,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/no.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000414", id: "", text: "Norwegian" },
   secondaryLayouts: [],
   mapping: {
@@ -3171,7 +3171,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/thai.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "0000041E", id: "", text: "Thai Kedmanee" },
   secondaryLayouts: [],
   mapping: {
@@ -3334,7 +3334,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/hu.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "0000040E", id: "", text: "Hungarian" },
   secondaryLayouts: [],
   mapping: {
@@ -3497,7 +3497,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/de-swiss.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000807", id: "", text: "Swiss German" },
   secondaryLayouts: [],
   mapping: {
@@ -3660,7 +3660,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/en-belgian.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000813", id: "", text: "Belgian (Period)" },
   secondaryLayouts: [],
   mapping: {
@@ -3823,7 +3823,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
 });
 
 // out-build/vs/workbench/services/keybinding/browser/keyboardLayouts/cz.win.js
-$gKc.INSTANCE.registerKeyboardLayout({
+$hKc.INSTANCE.registerKeyboardLayout({
   layout: { name: "00000405", id: "", text: "Czech" },
   secondaryLayouts: [],
   mapping: {
@@ -3985,7 +3985,7 @@ $gKc.INSTANCE.registerKeyboardLayout({
   }
 });
 export {
-  $gKc as KeyboardLayoutContribution
+  $hKc as KeyboardLayoutContribution
 };
 
 //# sourceMappingURL=layout.contribution.win.js.map
